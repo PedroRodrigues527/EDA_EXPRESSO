@@ -5,13 +5,13 @@
 #include <iostream>
 using namespace std;
 
-struct Pessoa {
+struct Pessoa { //mai 11/05
 	string p_nome;
 	string u_nome;
 	int numero_bilhete;
 };
 
-struct ElementoFila {
+struct ElementoFila { //mai 11/05
 	Pessoa* seguinte;
 	Pessoa pessoa;
 };

@@ -1,5 +1,6 @@
 #pragma once
-#define NUM_NOMES 10
+#define NUM_P_NOMES 44
+#define NUM_U_NOMES 97
 #include<iostream>
 using namespace std;
 
@@ -15,10 +16,9 @@ struct ElementoFila {
 };
 
 
-
 void fila_espera(string u_nome);
 
-void cria_passageiros();
+Pessoa nova_pessoa(string* pnomes, string* unomes);
 
 void saida_passageiros();
 

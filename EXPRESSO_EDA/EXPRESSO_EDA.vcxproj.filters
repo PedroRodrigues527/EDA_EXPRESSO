@@ -27,4 +27,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="primeiro_nome.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="ultimo_nome.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="paragens.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

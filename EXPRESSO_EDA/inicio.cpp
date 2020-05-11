@@ -5,6 +5,7 @@
 #include<locale>
 #include<string>
 using namespace std;
+
 void fila_espera(string u_nome) //cupido e pedro 11/5
 {
 	
@@ -25,10 +26,13 @@ void fila_espera(string u_nome) //cupido e pedro 11/5
 	cout << "exemplo2";//o 10 refere-se á distância entre o anterior;*/
 }
 
-void cria_passageiros()
+Pessoa nova_pessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) // mai 11/05
 {
-    
-    string* vetor_Passageiros = new string[];
+    Pessoa novaPessoa;
+    novaPessoa.p_nome = pnomes[rand() % NUM_P_NOMES];
+    novaPessoa.u_nome = pnomes[rand() % NUM_U_NOMES];
+    novaPessoa.numero_bilhete = rand() % 10000 + 1000;
+    return novaPessoa;
 }
 
 void saida_passageiros() //pedro

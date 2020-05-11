@@ -144,6 +144,11 @@
   <ItemGroup>
     <ClInclude Include="inicio.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="paragens.txt" />
+    <Text Include="primeiro_nome.txt" />
+    <Text Include="ultimo_nome.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

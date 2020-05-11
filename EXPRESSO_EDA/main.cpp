@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip> // para importar o setw
 #include "inicio.h"
+#include "Fila.h"
 using namespace std;
 
 locale pt = pt.global(locale("pt-PT.UTF8"));

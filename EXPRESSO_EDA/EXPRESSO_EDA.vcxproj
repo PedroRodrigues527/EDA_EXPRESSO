@@ -138,10 +138,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Fila.cpp" />
     <ClCompile Include="inicio.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Fila.h" />
     <ClInclude Include="inicio.h" />
   </ItemGroup>
   <ItemGroup>

@@ -27,30 +27,21 @@ void fila_espera(string u_nome) //cupido e pedro 11/5
 	cout << "exemplo2";//o 10 refere-se á distância entre o anterior;*/
 }
 
-Pessoa nova_pessoa(string* pnomes, string* unomes)
-{
-    return Pessoa();
-}
-
 Pessoa nova_pessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) // mai 11/05
 {
     Pessoa novaPessoa;
     novaPessoa.p_nome = pnomes[rand() % NUM_P_NOMES];
-    novaPessoa.u_nome = pnomes[rand() % NUM_U_NOMES];
+    novaPessoa.u_nome = unomes[rand() % NUM_U_NOMES];
+    // os ultimos nomes tem que ser diferentes
     novaPessoa.numero_bilhete = rand() % 10000 + 1000;
     return novaPessoa;
 }
 
 bool saida_passageiros() //pedro
 {
-    int a = rand() % 4 + 1; //numero aleatorio de 1 a 4
-    if (a == 1) {
-        return true;
-    }
-    else {
-        return false;
-    }
- // se sair 1 o passageiro sai caso contrario nao sai
+    //numero aleatorio de 1 a 4
+    return ((rand() % 4 + 1) == 1);
+    // se sair 1 o passageiro sai caso contrario nao sai
 }
 
 void cria_autocarros()

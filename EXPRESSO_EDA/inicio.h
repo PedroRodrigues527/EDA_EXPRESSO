@@ -11,15 +11,18 @@ struct Pessoa { //mai 11/05
 	int numero_bilhete;
 };
 
-struct ElementoFila { //mai 11/05
+struct Item { //mai 11/05
 	Pessoa* seguinte;
 	Pessoa pessoa;
 };
 
+struct Fila {
+	Item* primeiro;
+};
 
 void fila_espera(string u_nome);
 
-Pessoa nova_pessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]);
+Pessoa nova_pessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]); //mai 11/05
 
 bool saida_passageiros();
 

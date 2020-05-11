@@ -23,7 +23,7 @@ void fila_espera(string u_nome) //cupido e pedro 11/5
 	cout << setw(10);
 	cout << "exemplo1";
 	cout << setw(10);
-	cout << "exemplo2";//o 10 refere-se á distância entre o anterior;*/
+	cout << "exemplo2";//o 10 refere-se Ã¡ distÃ¢ncia entre o anterior;*/
 }
 
 Pessoa nova_pessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) // mai 11/05
@@ -35,9 +35,17 @@ Pessoa nova_pessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) // ma
     return novaPessoa;
 }
 
-void saida_passageiros() //pedro
+bool saida_passageiros() //pedro
 {
-    //gerar um numero de 1 a 4 e se sair 1 o passageiro sai :)
+    int a = rand() % 4 + 1; //numero aleatorio de 1 a 4
+    bool sair;
+    if (a == 1) {
+        bool sair = true;
+    }
+    else {
+        bool sair = false;
+    }
+    return sair; //-> se sair 1 o passageiro sai caso contrario nao sai
 }
 
 void cria_autocarros()

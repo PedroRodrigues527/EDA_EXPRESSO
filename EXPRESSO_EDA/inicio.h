@@ -1,7 +1,8 @@
 #pragma once
 #define NUM_P_NOMES 44
 #define NUM_U_NOMES 97
-#include<iostream>
+#define NUM_PARAGENS 54 //Cupido 11/05/20
+#include <iostream>
 using namespace std;
 
 struct Pessoa {
@@ -25,3 +26,8 @@ bool saida_passageiros();
 void cria_autocarros();
 
 void cria_paragens();
+
+//Cupido 11/05/20
+void lerFicheiroPrimeiroNome(string* listaprimeironome);
+void lerFicheiroUltimoNome(string* listaultimonome);
+void lerFicheiroParagens(string* listaparagens);

@@ -44,14 +44,13 @@ Pessoa nova_pessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) // ma
 bool saida_passageiros() //pedro
 {
     int a = rand() % 4 + 1; //numero aleatorio de 1 a 4
-    bool sair;
     if (a == 1) {
-        bool sair = true;
+        return true;
     }
     else {
-        bool sair = false;
+        return false;
     }
-    return sair; //-> se sair 1 o passageiro sai caso contrario nao sai
+ // se sair 1 o passageiro sai caso contrario nao sai
 }
 
 void cria_autocarros()

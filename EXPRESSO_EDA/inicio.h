@@ -3,15 +3,15 @@
 #include<iostream>
 using namespace std;
 
-struct Passageiro {
+struct Pessoa {
 	string p_nome;
 	string u_nome;
 	int numero_bilhete;
 };
 
-struct Fila {
-	Passageiro* seguinte;
-	Passageiro* primeiro;
+struct ElementoFila {
+	Pessoa* seguinte;
+	Pessoa pessoa;
 };
 
 

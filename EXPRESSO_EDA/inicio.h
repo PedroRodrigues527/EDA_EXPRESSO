@@ -19,7 +19,7 @@ struct ElementoFila { //mai 11/05
 
 void fila_espera(string u_nome);
 
-Pessoa nova_pessoa(string* pnomes, string* unomes);
+Pessoa nova_pessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]);
 
 bool saida_passageiros();
 

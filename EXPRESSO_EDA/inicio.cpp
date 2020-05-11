@@ -27,11 +27,6 @@ void fila_espera(string u_nome) //cupido e pedro 11/5
 	cout << "exemplo2";//o 10 refere-se á distância entre o anterior;*/
 }
 
-Pessoa nova_pessoa(string* pnomes, string* unomes)
-{
-    return Pessoa();
-}
-
 Pessoa nova_pessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) // mai 11/05
 {
     Pessoa novaPessoa;

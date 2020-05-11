@@ -20,7 +20,7 @@ void fila_espera(string u_nome);
 
 Pessoa nova_pessoa(string* pnomes, string* unomes);
 
-void saida_passageiros();
+bool saida_passageiros();
 
 void cria_autocarros();
 

@@ -22,7 +22,7 @@ Pessoa Criapessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]); //mai
 
 bool saida_passageiros();
 
-void cria_autocarros();
+void cria_autocarros(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]);
 
 void cria_paragens();
 

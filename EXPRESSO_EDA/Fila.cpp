@@ -15,37 +15,28 @@ void inicializaFila(Item* primeiro, string* listaPnomes, string* listaUnomes) { 
 }
 
 void imprimeFila(Item* primeiro) { //Cupido, Pedro e Diogo 18/05 (e mai)
+
 	Item* temp = primeiro;
-	int tamanho = 29; //ContaFila(primeiro);
-	string* array = new string[tamanho];
+
+	int tamanho = ContaFila(primeiro);
+
+	string* arrayUnomes = new string[tamanho];
+	int* arrayNumBilhete = new int[tamanho];
+
 	for (int i = 0; i < tamanho; i++) {
-		array[i] = temp->pessoa.u_nome;
+		arrayUnomes[i] = temp->pessoa.u_nome;
+		arrayNumBilhete[i] = temp->pessoa.numero_bilhete;
 		temp = temp->seguinte;
 	}
 
-	int linhas = ceil((float)tamanho / 3);
-
-	if (tamanho % 3 == 0) {      //27 30 33...
-		for (int j = 0; j < linhas; j++) {
-			cout << setw(20) << left << array[(3 * linhas - 1) - j];
-			cout << setw(20) << left << array[(2 * linhas - 1) - j];
-			cout << setw(20) << left << array[(linhas - 1) - j] << endl;
+	cout << " --- Fila de Espera --- " << endl;
+	for (int j = tamanho-1; j >=0 ; j--) {
+		cout << "| " << setw(12) << left << arrayUnomes[j] << " | " << setw(6) << left << arrayNumBilhete[j] << " |";
+		if ((tamanho - j) % 3 == 0) {
+			cout << endl;
 		}
 	}
-	else if (tamanho % 3 == 1) { //28 31 34...
-		for (int j = 0; j < linhas-1; j++) {
-			cout << setw(20) << left << array[(3 * linhas - 1) - j];
-			cout << setw(20) << left << array[(2 * linhas - 1) - j];
-			cout << setw(20) << left << array[(linhas - 1) - j] << endl;
-		}
-	}
-	else if (tamanho % 3 == 2) { //29 32 35...
-		for (int j = 0; j < linhas; j++) {
-			cout << setw(20) << left << array[(3 * linhas - 1) - j];
-			cout << setw(20) << left << array[(2 * linhas - 1) - j];
-			cout << setw(20) << left << array[(linhas - 1) - j] << endl;
-		}
-	}
+	cout << endl << endl;
 }
 
 void entraFila(Item* primeiro, Pessoa novapessoa) { //mai 11/05

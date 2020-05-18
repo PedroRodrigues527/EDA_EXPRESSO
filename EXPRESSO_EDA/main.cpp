@@ -1,15 +1,14 @@
 #include <iostream>
 #include <iomanip> // para importar o setw
 #include <stdlib.h>
-
+#include <locale>
 #include "inicio.h"
 #include "Fila.h"
 
 using namespace std;
+locale pt = pt.global(locale("pt-PT.UTF8"));
 
 int main() {
-
-	locale pt = pt.global(locale("pt-PT.UTF8"));
 
 	srand((unsigned)time(NULL));
 

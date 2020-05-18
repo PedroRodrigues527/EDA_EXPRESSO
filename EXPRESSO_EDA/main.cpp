@@ -4,12 +4,12 @@
 #include <locale>
 #include "inicio.h"
 #include "Fila.h"
+#include "iteracao.h"
 
 using namespace std;
 locale pt = pt.global(locale("pt-PT.UTF8"));
 
 int main() {
-
 	srand((unsigned)time(NULL));
 
 	//fila_espera();
@@ -24,18 +24,30 @@ int main() {
 	Fila->seguinte = NULL;
 	inicializaFila(Fila, listaPrimeironome, listaUltimonome);
 
-	/*while (Fila->seguinte != NULL) {
-		cout << Fila->pessoa.numero_bilhete << Fila->pessoa.p_nome << Fila->pessoa.u_nome << endl;
-		Fila = Fila->seguinte;
-	}
-
-	cout << endl;
-	cria_autocarros(listaPrimeironome, listaUltimonome);
-
-	cout << endl;
-	cout << endl;*/
-
 	imprimeFila(Fila);
+	//cria_autocarros(listaPrimeironome, listaUltimonome);
+
+	char escolha_do_utilizador;
+	do { // (mai e paulo drumond 18/05)
+		cout << " -------- " << endl;
+		cout << " Pressione 'o' para poder ver as opções disponiveis." << endl;
+		cout << " Pressione 's' para seguir para a próxima iteração." << endl;
+		cout << " Prima qualquer outra tecla para fechar o programa." << endl;
+		cin >> escolha_do_utilizador;
+
+		switch (escolha_do_utilizador)
+		{
+		case 'o': // aceder às operações
+			menuOpcoes();
+			break;
+		case 's': // iterar
+			//incompleto
+			break;
+		default:
+			break;
+		}
+
+	} while ((escolha_do_utilizador == 'o') || (escolha_do_utilizador == 's')); // repetir enquanto que a opção escolhida não for 'o' nem 's'
 
 	return 0;
 }

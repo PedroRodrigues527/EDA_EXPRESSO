@@ -20,7 +20,7 @@ void fila_espera(string u_nome);
 
 Pessoa Criapessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]); //mai 11/05
 
-bool saida_passageiros();
+bool saida_passageiro();
 
 void cria_autocarros(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]);
 

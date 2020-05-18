@@ -37,7 +37,7 @@ Pessoa Criapessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) // mai
     return novaPessoa;
 }
 
-bool saida_passageiros() //pedro
+bool saida_passageiro() //pedro
 {
     //numero aleatorio de 1 a 4
     return ((rand() % 4 + 1) == 1);

@@ -65,7 +65,7 @@ void cria_autocarros(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) //C
     int capacidadepassageiros = rand() % 6 + 5; //de 5 a 10
 
     //teste
-    cout << PrimeiroNomeMotorista << "" << UltimoNomeMotorista << "" << capacidadepassageiros << endl;
+    //cout << " " << PrimeiroNomeMotorista << " " << UltimoNomeMotorista << " " << capacidadepassageiros << endl;
 }
 
 void cria_paragens() //pedro e cupido

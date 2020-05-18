@@ -7,9 +7,9 @@
 
 using namespace std;
 
-locale pt = pt.global(locale("pt-PT.UTF8"));
-
 int main() {
+
+	locale pt = pt.global(locale("pt-PT.UTF8"));
 
 	srand((unsigned)time(NULL));
 
@@ -25,7 +25,7 @@ int main() {
 	Fila->seguinte = NULL;
 	inicializaFila(Fila, listaPrimeironome, listaUltimonome);
 
-	while (Fila->seguinte != NULL) {
+	/*while (Fila->seguinte != NULL) {
 		cout << Fila->pessoa.numero_bilhete << Fila->pessoa.p_nome << Fila->pessoa.u_nome << endl;
 		Fila = Fila->seguinte;
 	}
@@ -34,9 +34,9 @@ int main() {
 	cria_autocarros(listaPrimeironome, listaUltimonome);
 
 	cout << endl;
-	cout << endl;
+	cout << endl;*/
 
-	//imprimeFila(Fila, listaPrimeironome, listaUltimonome);
+	imprimeFila(Fila);
 
 	return 0;
 }

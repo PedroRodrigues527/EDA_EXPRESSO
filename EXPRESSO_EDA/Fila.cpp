@@ -14,37 +14,37 @@ void inicializaFila(Item* primeiro, string* listaPnomes, string* listaUnomes) { 
 	}
 }
 
-void imprimeFila(Item* primeiro, string* listaPnomes, string* listaUnomes) { //Cupido, Pedro e Diogo 18/05
+void imprimeFila(Item* primeiro) { //Cupido, Pedro e Diogo 18/05 (e mai)
 	Item* temp = primeiro;
-	//for (int i = 0; i < 10; i++) {
-	//	//cout << setw(0);
-	//	cout << temp->pessoa.u_nome << setw(10) << endl;
-	//	temp = temp->seguinte;
-	//	//cout << setw(0);
-	//}
-	//for (int i = 0; i < 10; i++) {
-	//	//cout << setw(10);
-	//	cout << temp->pessoa.u_nome << setw(10) << endl;
-	//	temp = temp->seguinte;
-	//	//cout << setw(10);
-	//}
-	//for (int i = 0; i < 10; i++) {
-	//	//cout << setw(20);
-	//	cout << temp->pessoa.u_nome << setw(10) << endl;
-	//	temp = temp->seguinte;
-	//	//cout << setw(20);
-	//}
-
-	string array[30];
-	for (int i = 0; i < 30; i++) {
+	int tamanho = 29; //ContaFila(primeiro);
+	string* array = new string[tamanho];
+	for (int i = 0; i < tamanho; i++) {
 		array[i] = temp->pessoa.u_nome;
 		temp = temp->seguinte;
 	}
 
-	for (int j = 0; j < 10; j++) {
-		cout << array[29 - j] << setw(20) ; //<< array[19 - j] << setw(20) << array[9 - j] << endl;
-		cout << array[19 - j] << setw(20);
-		cout << array[9 - j] << endl;
+	int linhas = ceil((float)tamanho / 3);
+
+	if (tamanho % 3 == 0) {      //27 30 33...
+		for (int j = 0; j < linhas; j++) {
+			cout << setw(20) << left << array[(3 * linhas - 1) - j];
+			cout << setw(20) << left << array[(2 * linhas - 1) - j];
+			cout << setw(20) << left << array[(linhas - 1) - j] << endl;
+		}
+	}
+	else if (tamanho % 3 == 1) { //28 31 34...
+		for (int j = 0; j < linhas-1; j++) {
+			cout << setw(20) << left << array[(3 * linhas - 1) - j];
+			cout << setw(20) << left << array[(2 * linhas - 1) - j];
+			cout << setw(20) << left << array[(linhas - 1) - j] << endl;
+		}
+	}
+	else if (tamanho % 3 == 2) { //29 32 35...
+		for (int j = 0; j < linhas; j++) {
+			cout << setw(20) << left << array[(3 * linhas - 1) - j];
+			cout << setw(20) << left << array[(2 * linhas - 1) - j];
+			cout << setw(20) << left << array[(linhas - 1) - j] << endl;
+		}
 	}
 }
 
@@ -62,4 +62,14 @@ void entraFila(Item* primeiro, Pessoa novapessoa) { //mai 11/05
 		}
 		temp->seguinte = aux;
 	}
+}
+
+int ContaFila(Item* primeiro) { //mai 18/05
+	Item* temp = primeiro;
+	int conta = 0;
+	while (temp->seguinte != NULL) {
+		temp = temp->seguinte;
+		conta++;
+	}
+	return conta;
 }

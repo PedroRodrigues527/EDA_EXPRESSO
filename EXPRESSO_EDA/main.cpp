@@ -26,27 +26,19 @@ int main() {
 	inicializaFila(Fila, listaPrimeironome, listaUltimonome);
 
 	imprimeFila(Fila);
-	//cria_autocarro(listaPrimeironome, listaUltimonome);
 
 	percurso pe;
 	pe.inicio = new percurso::paragem;
 	criarPercurso(pe, listaParagens);
+	//percurso::paragem* temp = new percurso::paragem;
 	imprimirPercurso(pe);
 	
-	//para testar
-	//autocarro ac = cria_autocarro(listaPrimeironome, listaUltimonome);
-	//Fila = inserir_autocarro(ac, pe, Fila);
-	//cout << endl;
-	//imprimeFila(Fila);
-	//cout << hex << uppercase << pe.inicio->autocarro.matricula;
-
-
 	char escolha_do_utilizador;
 	do { // (mai e paulo drumond 18/05)
-		cout << endl << " -------- " << endl;
+		cout << endl << "---------------" << endl;
 		cout << " Pressione 'o' para poder ver as opções disponiveis." << endl;
 		cout << " Pressione 's' para seguir para a próxima iteração." << endl;
-		cout << " Prima qualquer outra tecla para fechar o programa." << endl;
+		cout << " Prima qualquer outra tecla para fechar o programa e terminar a execução." << endl;
 		cin >> escolha_do_utilizador;
 
 		switch (escolha_do_utilizador)
@@ -56,6 +48,10 @@ int main() {
 			break;
 		case 's': // iterar
 			//incompleto
+			Fila = inserir_autocarro(listaPrimeironome, listaUltimonome, pe, Fila);
+			cout << endl;
+			imprimeFila(Fila);
+			imprimirPercurso(pe);
 			break;
 		default:
 			break;

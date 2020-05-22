@@ -9,4 +9,4 @@ void menuOpcoes();
 
 autocarro cria_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]);
 
-Item* inserir_autocarro(autocarro novo, percurso pe, Item* Fila);
+Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], percurso pe, Item* Fila);

@@ -12,7 +12,7 @@ struct Pessoa { //mai 11/05
 };
 
 struct Item { //mai 11/05
-	Item* seguinte;
+	Item* seguinte = NULL;
 	Pessoa pessoa;
 };
 

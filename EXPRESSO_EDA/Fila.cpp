@@ -48,11 +48,11 @@ void imprimeFila(Item* primeiro) { //Cupido, Pedro e Diogo 18/05 (e mai)
 		temp = temp->seguinte;
 	}
 
-	cout << endl << " --- Fila de Espera --- " << endl;
+	cout << endl << " --- Fila de Espera (" << ContaFila(primeiro) << ") --- " << endl;
 	for (int j = tamanho-1; j >=0 ; j--) {
 		cout << "| ";
 		printItem(arrayUnomes[j], 12);
-		cout << " |";
+		cout << " :";
 		printItem(to_string(arrayNumBilhete[j]), 6);
 		cout << " |";
 		if ((tamanho - j) % 3 == 0) {

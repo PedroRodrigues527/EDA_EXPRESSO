@@ -31,17 +31,54 @@ void criarPercurso(percurso& pe, string* listaParagens) //diogo, pedro, mai e cu
 
 }
 
-void imprimirPercurso(percurso& pe) // mai (incompleto, falta a parte de imprimir o autocarro e passageiros)
+void imprimirPercurso(percurso& pe) // mai
 {
     percurso::paragem* temp = pe.inicio;
 
-    cout << "--- Percurso ---" << endl;
+    cout << " -= Percurso =-" << endl;
 
-    cout << temp->nome;
     do {
+
+        cout << "Paragem : " << temp->nome << endl;
+
+
+        cout << "Autocarro : ";
+        if (autocarroExiste(temp->autocarro)) {
+            cout << hex << uppercase << temp->autocarro.matricula << dec;
+        }
+        else {
+            cout << "Ainda vazio!";
+        }
+        cout << " | Motorista : " << temp->autocarro.p_nome_C << " " << temp->autocarro.u_nome_C << endl;
+
+
+        cout << "Passageiros ";
+        if (autocarroExiste(temp->autocarro))
+        {
+            cout << "(" << temp->autocarro.capacidade << ")";
+        }
+        cout << " : ";
+
+        if (autocarroExiste(temp->autocarro))
+        {
+            Item* aux = temp->autocarro.primeiro;
+            while (aux != NULL) {
+                cout << aux->pessoa.u_nome << " " << aux->pessoa.numero_bilhete;
+                if (aux->seguinte != NULL)
+                    cout << ", ";
+                aux = aux->seguinte;
+            }
+        }
+
+
+        cout << endl << endl;
         temp = temp->seguinte;
-        cout << " -> " << temp->nome;
-    } while (temp->seguinte != NULL);
+
+    } while (temp != NULL);
 
 }
 
+bool autocarroExiste(autocarro ac) // mai
+{
+    return (ac.matricula != 0);
+}

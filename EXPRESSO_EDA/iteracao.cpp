@@ -56,8 +56,9 @@ autocarro cria_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES])
     return novo;
 }
 
-Item* inserir_autocarro(autocarro novo, percurso pe, Item* Fila)
+Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], percurso pe, Item* Fila) // mai com ajuda do cupido (WIP)
 {
+    autocarro novo = cria_autocarro(pnomes, unomes);
     Item* temp1 = Fila;
     novo.primeiro = temp1;
     for (int i = 1; i < novo.capacidade; i++) {
@@ -73,11 +74,34 @@ Item* inserir_autocarro(autocarro novo, percurso pe, Item* Fila)
         cout << aux->pessoa.u_nome << endl;
         aux = aux->seguinte;
     } while (aux != NULL);
-    cout << novo.capacidade; */
+    cout << novo.capacidade;*/
 
-    percurso::paragem* paragem = pe.inicio;
-    int i = 0;
-    paragem->autocarro = novo;
+
+    percurso::paragem* temp = pe.inicio;
+    percurso::paragem* paragem1 = pe.inicio;
+
+    //int c = 0;
+
+    if (!autocarroExiste(paragem1->autocarro)) {
+        paragem1->autocarro = novo;
+    }
+    else {
+        while (autocarroExiste(paragem1->autocarro)) {
+            temp = paragem1;
+            //c = 0;
+            while (autocarroExiste(temp->seguinte->autocarro) /*&& c < pe.numParagensTotal*/) {
+                cout << hex << temp->seguinte->autocarro.matricula << endl << dec;
+                temp = temp->seguinte;
+                //c++;
+            }
+            //if (c != pe.numParagensTotal) {
+            temp->seguinte->autocarro = temp->autocarro; // trocar o na posição atual com o vazio
+            temp->autocarro.matricula = 0;
+            //}
+            //cout << hex << temp->autocarro.matricula << endl << dec << "test" << endl;
+        }
+        pe.inicio->autocarro = novo;
+    }
 
     return Fila; // porque atualizámos o apontador para o inicio da fila
 }

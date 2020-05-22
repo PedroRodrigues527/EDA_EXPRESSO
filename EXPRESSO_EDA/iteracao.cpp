@@ -35,3 +35,27 @@ void menuOpcoes() //paulo drumond 18/05
         break;
     }
 }
+
+void cria_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) //Cupido e Pedro 18/05
+{
+    // 0123456789 ABCDEF
+    char hexadecimal[16] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+    char matricula[4];
+    for (int i = 0; i < 4; i++) {
+        matricula[i] = hexadecimal[rand() % 16];
+    }
+
+    for (int j = 0; j < 4; j++) {
+        cout << matricula[j];
+    }
+
+    //Motorista
+    string PrimeiroNomeMotorista = pnomes[rand() % NUM_P_NOMES];
+    string UltimoNomeMotorista = unomes[rand() % NUM_U_NOMES];
+
+    //capacidade
+    int capacidadepassageiros = rand() % 6 + 5; //de 5 a 10
+
+    //teste
+    //cout << " " << PrimeiroNomeMotorista << " " << UltimoNomeMotorista << " " << capacidadepassageiros << endl;
+}

@@ -4,6 +4,8 @@
 
 using namespace std;
 
+void printItem(string name, int tam); // professor
+
 void inicializaFila(Item* primeiro, string* listaPnomes, string* listaUnomes);
 void entraFila(Item* primeiro, Pessoa novapessoa);
 

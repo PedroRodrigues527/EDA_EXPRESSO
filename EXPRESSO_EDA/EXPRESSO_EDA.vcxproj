@@ -142,11 +142,13 @@
     <ClCompile Include="inicio.cpp" />
     <ClCompile Include="iteracao.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="percurso.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fila.h" />
     <ClInclude Include="inicio.h" />
     <ClInclude Include="iteracao.h" />
+    <ClInclude Include="percurso.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="paragens.txt" />

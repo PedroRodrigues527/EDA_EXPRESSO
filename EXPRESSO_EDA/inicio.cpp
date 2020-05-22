@@ -27,7 +27,7 @@ void fila_espera(string u_nome) //cupido e pedro 11/5
 	cout << "exemplo2";//o 10 refere-se á distância entre o anterior;*/
 }
 
-Pessoa Criapessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) // mai 11/05
+Pessoa criaPessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) // mai 11/05
 {
     Pessoa novaPessoa;
     novaPessoa.p_nome = pnomes[rand() % NUM_P_NOMES];
@@ -42,35 +42,6 @@ bool saida_passageiro() //pedro
     //numero aleatorio de 1 a 4
     return ((rand() % 4 + 1) == 1);
     // se sair 1 o passageiro sai caso contrario nao sai
-}
-
-void cria_autocarros(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) //Cupido e Pedro 18/05
-{
-    // 0123456789 ABCDEF
-    char hexadecimal[16] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
-    char matricula[4];
-    for (int i = 0; i < 4; i++) {
-        matricula[i] = hexadecimal[rand() % 16];
-    }
-
-    for (int j = 0; j < 4; j++) {
-        cout << matricula[j];
-    }
-
-    //Motorista
-    string PrimeiroNomeMotorista = pnomes[rand() % NUM_P_NOMES];
-    string UltimoNomeMotorista = unomes[rand() % NUM_U_NOMES];
-
-    //capacidade
-    int capacidadepassageiros = rand() % 6 + 5; //de 5 a 10
-
-    //teste
-    //cout << " " << PrimeiroNomeMotorista << " " << UltimoNomeMotorista << " " << capacidadepassageiros << endl;
-}
-
-void cria_paragens() //pedro e cupido
-{
-    int Paragens = rand() % 6 + 4; //de 4 a 9
 }
 
 void lerFicheiroPrimeiroNome(string* listaprimeironome) { //Cupido 11/05

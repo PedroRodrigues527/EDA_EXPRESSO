@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <locale>
 #include "inicio.h"
+#include "percurso.h"
 #include "Fila.h"
 #include "iteracao.h"
 
@@ -25,11 +26,17 @@ int main() {
 	inicializaFila(Fila, listaPrimeironome, listaUltimonome);
 
 	imprimeFila(Fila);
-	//cria_autocarros(listaPrimeironome, listaUltimonome);
+	//cria_autocarro(listaPrimeironome, listaUltimonome);
+
+	percurso pe;
+	pe.inicio = new percurso::paragem;
+	criarPercurso(pe, listaParagens);
+	imprimirPercurso(pe);
+
 
 	char escolha_do_utilizador;
 	do { // (mai e paulo drumond 18/05)
-		cout << " -------- " << endl;
+		cout << endl << " -------- " << endl;
 		cout << " Pressione 'o' para poder ver as opções disponiveis." << endl;
 		cout << " Pressione 's' para seguir para a próxima iteração." << endl;
 		cout << " Prima qualquer outra tecla para fechar o programa." << endl;

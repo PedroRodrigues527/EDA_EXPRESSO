@@ -32,6 +32,13 @@ int main() {
 	pe.inicio = new percurso::paragem;
 	criarPercurso(pe, listaParagens);
 	imprimirPercurso(pe);
+	
+	//para testar
+	//autocarro ac = cria_autocarro(listaPrimeironome, listaUltimonome);
+	//Fila = inserir_autocarro(ac, pe, Fila);
+	//cout << endl;
+	//imprimeFila(Fila);
+	//cout << hex << uppercase << pe.inicio->autocarro.matricula;
 
 
 	char escolha_do_utilizador;

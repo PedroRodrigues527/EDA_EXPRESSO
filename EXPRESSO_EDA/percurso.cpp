@@ -4,7 +4,7 @@ void criarPercurso(percurso& pe, string* listaParagens) //diogo, pedro, mai e cu
 {
 
     int numParagensIntermedias = rand() % 6 + 4; // de 4 a 9
-    int numParagensTotal = numParagensIntermedias + 2; // de 6 a 11
+    pe.numParagensTotal = numParagensIntermedias + 2; // de 6 a 11
     percurso::paragem* aux = new percurso::paragem;
 
     aux = pe.inicio;

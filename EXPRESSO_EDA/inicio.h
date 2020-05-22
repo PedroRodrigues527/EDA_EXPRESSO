@@ -22,8 +22,6 @@ Pessoa criaPessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]); //mai
 
 bool saida_passageiro();
 
-void cria_paragens();
-
 //Cupido 11/05/20
 void lerFicheiroPrimeiroNome(string* listaprimeironome);
 void lerFicheiroUltimoNome(string* listaultimonome);

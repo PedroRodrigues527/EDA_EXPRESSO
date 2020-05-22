@@ -48,7 +48,7 @@ void imprimeFila(Item* primeiro) { //Cupido, Pedro e Diogo 18/05 (e mai)
 		temp = temp->seguinte;
 	}
 
-	cout << " --- Fila de Espera --- " << endl;
+	cout << endl << " --- Fila de Espera --- " << endl;
 	for (int j = tamanho-1; j >=0 ; j--) {
 		cout << "| ";
 		printItem(arrayUnomes[j], 12);

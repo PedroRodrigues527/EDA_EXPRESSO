@@ -4,13 +4,10 @@ using namespace std;
 
 
 struct autocarro { // mai
-	struct passageiro {
-		Pessoa pessoa;
-		passageiro* seguinte;
-	};
-	passageiro* primeiro; // apontador para lista ligada de passageiros
 
-	char matricula[4];
+	Item* primeiro; // apontador para lista ligada de passageiros
+
+	int matricula; // numero hexadecimal de 1000 a FFFF (4096 a 65535);
 	int capacidade; // tamanho da lista ligada
 
 	string p_nome_C; // do condutor
@@ -29,12 +26,15 @@ struct arvore_bilhetes { // arvore de procura binária // mai
 
 
 struct percurso { //pedro e mai
+
 	struct paragem {
 		autocarro autocarro;
 		arvore_bilhetes lista_bilhetes;
 		string nome;
-		paragem* seguinte;
+		paragem* seguinte = NULL;
 	};
+
+	int numParagensTotal;
 	paragem* inicio;
 };
 

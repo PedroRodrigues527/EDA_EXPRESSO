@@ -1,5 +1,5 @@
 #include "Fila.h"
-#include "inicio.h"
+#include "percurso.h"
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -75,6 +75,14 @@ void entraFila(Item* primeiro, Pessoa novapessoa) { //mai 11/05
 			temp = temp->seguinte;
 		}
 		temp->seguinte = aux;
+	}
+}
+
+void iteraFila(Item* primeiro, string* listaPnomes, string* listaUnomes, int num) // mai 23/05
+{
+	for (int i = 0; i < num; i++) {
+		Pessoa novapessoa = criaPessoa(listaPnomes, listaUnomes);
+		entraFila(primeiro, novapessoa);
 	}
 }
 

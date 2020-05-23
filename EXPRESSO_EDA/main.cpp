@@ -50,6 +50,7 @@ int main() {
 			//incompleto
 			Fila = inserir_autocarro(listaPrimeironome, listaUltimonome, pe, Fila);
 			cout << endl;
+			iteraFila(Fila, listaPrimeironome, listaUltimonome, 30);
 			imprimeFila(Fila);
 			imprimirPercurso(pe);
 			break;

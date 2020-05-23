@@ -3,6 +3,7 @@
 #define NUM_U_NOMES 97
 #define NUM_PARAGENS 53 //Cupido 11/05/20
 #include <iostream>
+#include <string>
 using namespace std;
 
 struct Pessoa { //mai 11/05

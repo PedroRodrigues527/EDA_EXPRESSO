@@ -1,5 +1,9 @@
+#pragma once
+#include "Fila.h"
 #include "iteracao.h"
 #include "percurso.h"
+#include <iostream>
+using namespace std;
 
 void menuOpcoes() //paulo drumond 18/05
 {

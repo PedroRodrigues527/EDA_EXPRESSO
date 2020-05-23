@@ -1,4 +1,7 @@
 #include "percurso.h"
+#include "iteracao.h"
+#include <iostream>
+using namespace std;
 
 void criarPercurso(percurso& pe, string* listaParagens) //diogo, pedro, mai e cupido 22/5
 {
@@ -78,7 +81,6 @@ void imprimirPercurso(percurso& pe) // mai
 
 }
 
-bool autocarroExiste(autocarro ac) // mai
-{
+bool autocarroExiste(autocarro ac) { // mai
     return (ac.matricula != 0);
 }

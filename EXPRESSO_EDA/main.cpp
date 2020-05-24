@@ -8,14 +8,16 @@
 #include "iteracao.h"
 
 using namespace std;
-locale pt = pt.global(locale("pt-PT.UTF8"));
+
+//PORQUE O ITERACAO.H NAO FUNCIONA (?)
 void menuOpcoes(percurso pe);
-Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], percurso pe, Item* Fila); //PORQUE O ITERACAO.H NAO FUNCIONA 
+Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], percurso pe, Item* Fila);
 
 int main() {
+
+	locale pt = pt.global(locale("pt-PT.UTF8"));
 	srand((unsigned)time(NULL));
 
-	//fila_espera();
 	string* listaPrimeironome = new string[NUM_P_NOMES];
 	string* listaUltimonome = new string[NUM_U_NOMES];
 	string* listaParagens = new string[NUM_PARAGENS];
@@ -32,8 +34,8 @@ int main() {
 	percurso pe;
 	pe.inicio = new percurso::paragem;
 	criarPercurso(pe, listaParagens);
-	//percurso::paragem* temp = new percurso::paragem;
 	imprimirPercurso(pe);
+
 	
 	char escolha_do_utilizador;
 	do { // (mai e paulo drumond 18/05)
@@ -47,11 +49,14 @@ int main() {
 		{
 		case 'o': // aceder às operações
 			menuOpcoes(pe);
+			imprimeFila(Fila);
+			imprimirPercurso(pe);
 			break;
 		case 's': // iterar
 			//incompleto
 			Fila = inserir_autocarro(listaPrimeironome, listaUltimonome, pe, Fila);
 			cout << endl;
+
 			iteraFila(Fila, listaPrimeironome, listaUltimonome, 15);
 			imprimeFila(Fila);
 			imprimirPercurso(pe);

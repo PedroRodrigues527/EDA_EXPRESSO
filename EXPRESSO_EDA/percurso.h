@@ -14,22 +14,18 @@ struct autocarro { // mai
 	string u_nome_C;
 };
 
-
-struct arvore_bilhetes { // arvore de procura binária // mai
-	struct bilhete {
-		int num;
-		bilhete* esq;
-		bilhete* dir;
-	};
-	bilhete* raiz;
+// arvore de procura binária // mai
+struct bilhete {
+	int num;
+	bilhete* esq = NULL;
+	bilhete* dir = NULL;
 };
-
 
 struct percurso { //pedro e mai
 
 	struct paragem {
 		autocarro autocarro;
-		arvore_bilhetes lista_bilhetes;
+		bilhete* arvore_bilhetes; // apontador para o inicio da arvore binária
 		string nome;
 		paragem* seguinte = NULL;
 	};
@@ -38,6 +34,9 @@ struct percurso { //pedro e mai
 	paragem* inicio;
 };
 
+
+bilhete* novoNodo_ArvoreBilhetes(int num_bilhete);
+bilhete* insereArvoreBilhetes(int num_bilhete, bilhete* raiz);
 
 void criarPercurso(percurso& pe, string* listaParagens);
 void imprimirPercurso(percurso& pe);

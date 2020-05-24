@@ -27,7 +27,7 @@ void printItem(string name, int tam) { // professor
 
 void inicializaFila(Item* primeiro, string* listaPnomes, string* listaUnomes) { //mai 11/05
 	primeiro->pessoa = criaPessoa(listaPnomes, listaUnomes);
-	for (int i = 0; i < 30; i++) {
+	for (int i = 1; i < 30; i++) {
 		Pessoa novapessoa = criaPessoa(listaPnomes, listaUnomes);
 		entraFila(primeiro, novapessoa);
 	}
@@ -89,9 +89,9 @@ void iteraFila(Item* primeiro, string* listaPnomes, string* listaUnomes, int num
 int ContaFila(Item* primeiro) { //mai 18/05
 	Item* temp = primeiro;
 	int conta = 0;
-	while (temp->seguinte != NULL) {
+	do {
 		temp = temp->seguinte;
 		conta++;
-	}
+	} while (temp != NULL);
 	return conta;
 }

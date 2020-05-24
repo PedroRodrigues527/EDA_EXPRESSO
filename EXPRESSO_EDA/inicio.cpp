@@ -7,33 +7,17 @@
 
 using namespace std;
 
-void fila_espera(string u_nome) //cupido e pedro 11/5
-{
-	
-    /*ifstream myFile("ultimo_nome.txt");
-    string line = "";
-    int i = 0;
-    if (myFile.is_open()) {  //verificar se o ficheiro existe
-        while (getline(myFile, line)) {
-            cout << line;
-            i++;
-        }
-    }
-    myFile.close();
-	cout << "exemplo";
-	cout << setw(10);
-	cout << "exemplo1";
-	cout << setw(10);
-	cout << "exemplo2";//o 10 refere-se á distância entre o anterior;*/
-}
-
 Pessoa criaPessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) // mai 11/05
 {
     Pessoa novaPessoa;
     novaPessoa.p_nome = pnomes[rand() % NUM_P_NOMES];
     novaPessoa.u_nome = unomes[rand() % NUM_U_NOMES];
-    // os ultimos nomes tem que ser diferentes
+
+    // os bilhetes têm que ser sempre únicos
     novaPessoa.numero_bilhete = rand() % 10000 + 1000;
+
+
+
     return novaPessoa;
 }
 

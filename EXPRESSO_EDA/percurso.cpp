@@ -6,7 +6,8 @@ using namespace std;
 void alteraMotorista(percurso& pe)//todos
 {
     string n_paragem;
-    cout << "Qual o nome da paragem, para alterar o motorista: ";
+    cout << " Qual o nome da paragem onde se encontra o motorista? ";
+    cin.ignore();
     getline(cin, n_paragem);
     percurso::paragem* temp = pe.inicio;
     while (temp->seguinte != NULL) {
@@ -16,25 +17,65 @@ void alteraMotorista(percurso& pe)//todos
                 string u_nome;
                 cout << "Primeiro nome: ";
                 cin >> p_nome;
-                cout << endl;
                 cout << "Ultimo nome: ";
                 cin >> u_nome;
-                cout << endl;
                 temp->autocarro.p_nome_C = p_nome;
                 temp->autocarro.u_nome_C = u_nome;
+                break;
             }
             else
                 temp = temp->seguinte;
         }
         else {
-            cout << "O autocarro não existe "<<endl;
+            cout << "O autocarro não existe. Pressione ENTER para retornar ao menu anterior. "<<endl;
+            cin.get();
             break;
         }
     }
-    
-    
+    if (temp->seguinte == NULL) {
+        cout << "Paragem não existe. Pressione ENTER para retornar ao menu anterior. ";
+        cin.get();
+    }
 }
 
+
+bilhete* novoNodo_ArvoreBilhetes(int num_bilhete)
+{
+    bilhete* novo = new bilhete;
+
+    novo->num = num_bilhete;
+    novo->esq = NULL;
+    novo->dir = NULL;
+
+    return novo;
+}
+
+bilhete* insereArvoreBilhetes(int num_bilhete, bilhete* raiz)
+{
+    bilhete* aux = raiz;
+    bilhete* prev = NULL;
+
+    if (aux == NULL) {
+        aux = novoNodo_ArvoreBilhetes(num_bilhete);
+    }
+    else
+    {
+        while (raiz != NULL) {
+            prev = raiz;
+            raiz = (num_bilhete > raiz->num ? raiz->esq : raiz->dir);
+            cout << "proximo" << endl;
+        }
+
+        if (num_bilhete > prev->num) {
+            prev->dir = novoNodo_ArvoreBilhetes(num_bilhete);
+        }
+        else {
+            prev->esq = novoNodo_ArvoreBilhetes(num_bilhete);
+        }
+    }
+
+    return aux;
+}
 
 void criarPercurso(percurso& pe, string* listaParagens) //diogo, pedro, mai e cupido 22/5
 {

@@ -10,6 +10,8 @@
 using namespace std;
 locale pt = pt.global(locale("pt-PT.UTF8"));
 
+Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], percurso pe, Item* Fila); //PORQUE O ITERACAO.H NAO FUNCIONA 
+
 int main() {
 	srand((unsigned)time(NULL));
 
@@ -50,7 +52,7 @@ int main() {
 			//incompleto
 			Fila = inserir_autocarro(listaPrimeironome, listaUltimonome, pe, Fila);
 			cout << endl;
-			iteraFila(Fila, listaPrimeironome, listaUltimonome, 30);
+			iteraFila(Fila, listaPrimeironome, listaUltimonome, 15);
 			imprimeFila(Fila);
 			imprimirPercurso(pe);
 			break;

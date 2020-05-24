@@ -38,10 +38,10 @@
     <ClInclude Include="Fila.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="iteracao.h">
+    <ClInclude Include="percurso.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="percurso.h">
+    <ClInclude Include="iteracao.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

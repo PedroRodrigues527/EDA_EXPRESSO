@@ -12,3 +12,8 @@ void iteraFila(Item* primeiro, string* listaPnomes, string* listaUnomes, int num
 
 void imprimeFila(Item* primeiro);
 int ContaFila(Item* primeiro);
+
+Item* removerInicio(Item* Fila);
+Item* removerFim(Item* Fila);
+Item* removerMeio(Item* Fila, int bilhete);
+Item* RemoverPessoaFiladeEspera(Item* Fila);

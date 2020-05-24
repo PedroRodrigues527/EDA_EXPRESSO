@@ -2,6 +2,7 @@
 #include <iomanip> // para importar o setw
 #include <stdlib.h>
 #include <locale>
+#include <Windows.h>
 #include "inicio.h"
 #include "percurso.h"
 #include "Fila.h"
@@ -9,13 +10,19 @@
 
 using namespace std;
 
-//PORQUE O ITERACAO.H NAO FUNCIONA (?)
-void menuOpcoes(percurso pe);
-Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], percurso pe, Item* Fila);
+locale pt = pt.global(locale("pt-PT.UTF8"));
+
+Item* menuOpcoes(percurso pe, Item* Fila);
+Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], percurso pe, Item* Fila); //PORQUE O ITERACAO.H NAO FUNCIONA 
 
 int main() {
 
-	locale pt = pt.global(locale("pt-PT.UTF8"));
+	//locale pt = pt.global(locale("pt-PT.UTF8"));
+	//locale::global(locale(""));
+	//setlocale(LC_ALL, "");
+	//SetConsoleOutputCP(1254);
+	//SetConsoleCP(1254);
+
 	srand((unsigned)time(NULL));
 
 	string* listaPrimeironome = new string[NUM_P_NOMES];
@@ -48,7 +55,7 @@ int main() {
 		switch (escolha_do_utilizador)
 		{
 		case 'o': // aceder às operações
-			menuOpcoes(pe);
+			Fila = menuOpcoes(pe, Fila);
 			imprimeFila(Fila);
 			imprimirPercurso(pe);
 			break;

@@ -7,6 +7,7 @@ void alteraMotorista(percurso& pe)//todos
 {
     string n_paragem;
     cout << "Qual o nome da paragem, para alterar o motorista: ";
+    cin.ignore();
     getline(cin, n_paragem);
     percurso::paragem* temp = pe.inicio;
     while (temp->seguinte != NULL) {
@@ -22,6 +23,7 @@ void alteraMotorista(percurso& pe)//todos
                 cout << endl;
                 temp->autocarro.p_nome_C = p_nome;
                 temp->autocarro.u_nome_C = u_nome;
+                break;
             }
             else
                 temp = temp->seguinte;

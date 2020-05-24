@@ -5,7 +5,8 @@
 #include <iostream>
 using namespace std;
 
-void menuOpcoes(percurso pe) //paulo drumond 18/05
+
+Item* menuOpcoes(percurso pe, Item* Fila) //paulo drumond 18/05
 {
     int num_opcao; // opção de 1 a 5 escolhida pelo utilizador
    
@@ -26,19 +27,24 @@ void menuOpcoes(percurso pe) //paulo drumond 18/05
         break;
     case 2:
         cout << "Escolheu a opção: 2.Remover passageiros em fila de espera" << endl;
+        Fila = RemoverPessoaFiladeEspera(Fila);
+        imprimeFila(Fila);
         break;
     case 3:
         cout << "Escolheu a opção : 3.Apresentar bilhetes por paragem" << endl;
         break;
     case 4:
         cout << "Escolheu a opção: 4.Alterar motorista" << endl;
+        alteraMotorista(pe);
+        imprimeFila(Fila);
         break;
     case 5:
         cout << "Escolheu a opção: 5.Remover bilhete da paragem" << endl;
-
+        break;
     default:
         break;
     }
+    return Fila;
 }
 
 autocarro cria_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) //Cupido e Pedro 18/05 e mai 22/05

@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 
-void menuOpcoes() //paulo drumond 18/05
+void menuOpcoes(percurso pe) //paulo drumond 18/05
 {
     int num_opcao; // opção de 1 a 5 escolhida pelo utilizador
    

@@ -3,12 +3,11 @@
 #include "Fila.h"
 using namespace std;
 
-
 struct autocarro { // mai
 
 	Item* primeiro; // apontador para lista ligada de passageiros
 
-	int matricula = 0; // inicializado a 0, mas È um numero hexadecimal de 1000 a FFFF (4096 a 65535);
+	int matricula = 0; // inicializado a 0, mas √© um numero hexadecimal de 1000 a FFFF (4096 a 65535);
 	int capacidade; // tamanho da lista ligada
 
 	string p_nome_C; // do condutor
@@ -16,7 +15,7 @@ struct autocarro { // mai
 };
 
 
-struct arvore_bilhetes { // arvore de procura bin·ria // mai
+struct arvore_bilhetes { // arvore de procura bin√°ria // mai
 	struct bilhete {
 		int num;
 		bilhete* esq;
@@ -44,3 +43,5 @@ void criarPercurso(percurso& pe, string* listaParagens);
 void imprimirPercurso(percurso& pe);
 
 bool autocarroExiste(autocarro ac);
+
+void alteraMotorista(percurso& pe);

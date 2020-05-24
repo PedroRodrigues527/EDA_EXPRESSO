@@ -9,7 +9,7 @@
 
 using namespace std;
 locale pt = pt.global(locale("pt-PT.UTF8"));
-
+void menuOpcoes(percurso pe);
 Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], percurso pe, Item* Fila); //PORQUE O ITERACAO.H NAO FUNCIONA 
 
 int main() {
@@ -46,7 +46,7 @@ int main() {
 		switch (escolha_do_utilizador)
 		{
 		case 'o': // aceder às operações
-			menuOpcoes();
+			menuOpcoes(pe);
 			break;
 		case 's': // iterar
 			//incompleto

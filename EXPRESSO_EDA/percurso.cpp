@@ -39,7 +39,7 @@ void alteraMotorista(percurso& pe)//todos
 }
 
 
-bilhete* novoNodo_ArvoreBilhetes(int num_bilhete)
+bilhete* novoNodo_ArvoreBilhetes(int num_bilhete) //mai
 {
     bilhete* novo = new bilhete;
 
@@ -50,23 +50,23 @@ bilhete* novoNodo_ArvoreBilhetes(int num_bilhete)
     return novo;
 }
 
-bilhete* insereArvoreBilhetes(int num_bilhete, bilhete* raiz)
+bilhete* insereArvoreBilhetes(int num_bilhete, bilhete* raiz) //mai e Cupido
 {
-    bilhete* aux = raiz;
-    bilhete* prev = NULL;
+    struct bilhete* aux = raiz;
+    struct bilhete* prev = NULL;
 
-    if (aux == NULL) {
+    if (raiz == NULL) {
         aux = novoNodo_ArvoreBilhetes(num_bilhete);
     }
     else
     {
         while (raiz != NULL) {
             prev = raiz;
-            raiz = (num_bilhete > raiz->num ? raiz->esq : raiz->dir);
-            cout << "proximo" << endl;
+            raiz = (raiz->num < num_bilhete ? raiz->dir : raiz->esq);
+            //cout << "proximo" << endl;
         }
 
-        if (num_bilhete > prev->num) {
+        if (prev->num < num_bilhete) {
             prev->dir = novoNodo_ArvoreBilhetes(num_bilhete);
         }
         else {

@@ -15,6 +15,8 @@ locale pt = pt.global(locale("pt-PT.UTF8"));
 Item* menuOpcoes(percurso pe, Item* Fila);
 Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], percurso pe, Item* Fila); //PORQUE O ITERACAO.H NAO FUNCIONA 
 
+void RemoverPessoaAutocarro(percurso::paragem* inicio);
+
 int main() {
 
 	//locale pt = pt.global(locale("pt-PT.UTF8"));

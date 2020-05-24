@@ -17,8 +17,8 @@ struct autocarro { // mai
 // arvore de procura binária // mai
 struct bilhete {
 	int num;
-	bilhete* esq = NULL;
-	bilhete* dir = NULL;
+	struct bilhete* esq;
+	struct bilhete* dir;
 };
 
 struct percurso { //pedro e mai

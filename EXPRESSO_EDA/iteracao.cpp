@@ -5,6 +5,8 @@
 #include <iostream>
 using namespace std;
 
+void RemoverPessoaAutocarro(percurso::paragem* inicio);
+
 
 Item* menuOpcoes(percurso pe, Item* Fila) //paulo drumond 18/05
 {
@@ -24,11 +26,11 @@ Item* menuOpcoes(percurso pe, Item* Fila) //paulo drumond 18/05
 
     case 1:
         cout << "   Escolheu a opção: 1. Remover passageiros nos autocarros." << endl;
+        RemoverPessoaAutocarro(pe.inicio);
         break;
     case 2:
         cout << "   Escolheu a opção: 2.Remover passageiros em fila de espera" << endl;
         Fila = RemoverPessoaFiladeEspera(Fila);
-        imprimeFila(Fila);
         break;
     case 3:
         cout << "   Escolheu a opção: 3. Apresentar bilhetes por paragem" << endl;
@@ -36,7 +38,6 @@ Item* menuOpcoes(percurso pe, Item* Fila) //paulo drumond 18/05
     case 4:
         cout << "   Escolheu a opção: 4.Alterar motorista" << endl;
         alteraMotorista(pe);
-        imprimeFila(Fila);
         break;
     case 5:
         cout << "   Escolheu a opção: 5. Remover bilhete da paragem" << endl;

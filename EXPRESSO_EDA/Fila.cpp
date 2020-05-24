@@ -154,3 +154,48 @@ Item* RemoverPessoaFiladeEspera(Item* Fila) { //cupido
 		}
 	}
 }
+
+void RemoverPessoaAutocarro(percurso::paragem* inicio) { //cupido e mai
+	int bilhete;
+	bool removido = false;
+	cout << "Insere o numero de bilhete para remover passageiro nos autocarros: ";
+	cin >> bilhete;
+	percurso::paragem* temp = inicio;
+	if (!autocarroExiste(temp->autocarro)) {
+		cout << "Nao existem autocarros!";
+	}
+	while ((temp->seguinte != NULL) && (!removido) && autocarroExiste(temp->autocarro)) {
+		Item* aux = temp->autocarro.primeiro;
+		if (aux->pessoa.numero_bilhete == bilhete) {
+			//cout << "foi ao inicio" << endl;
+			temp->autocarro.primeiro = removerInicio(temp->autocarro.primeiro);
+			temp->autocarro.capacidade -= 1;
+			removido = true;
+			break;
+		}
+		for (int i = 0; i < temp->autocarro.capacidade; i++) {
+			if (aux->seguinte == NULL && aux->pessoa.numero_bilhete == bilhete) {
+				//cout << "foi ao fim" << endl;
+				temp->autocarro.primeiro = removerFim(temp->autocarro.primeiro);
+				temp->autocarro.capacidade -= 1;
+				removido = true;
+				break;
+			}
+			else if (aux->seguinte != NULL && aux->pessoa.numero_bilhete == bilhete) {
+				//cout << "foi ao meio" << endl;
+				temp->autocarro.primeiro = removerMeio(temp->autocarro.primeiro, bilhete);
+				temp->autocarro.capacidade -= 1;
+				removido = true;
+				break;
+			}
+			aux = aux->seguinte;
+		}
+		temp = temp->seguinte;
+	}
+	if (removido) {
+		cout << "Removido com Sucesso!" << endl;
+	}
+	else {
+		cout << "Nao encontrado!" << endl;
+	}
+}

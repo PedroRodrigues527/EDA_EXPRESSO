@@ -3,6 +3,39 @@
 #include <iostream>
 using namespace std;
 
+void alteraMotorista(percurso& pe)//todos
+{
+    string n_paragem;
+    cout << "Qual o nome da paragem, para alterar o motorista: ";
+    getline(cin, n_paragem);
+    percurso::paragem* temp = pe.inicio;
+    while (temp->seguinte != NULL) {
+        if (autocarroExiste(temp->autocarro)) {
+            if (temp->nome == n_paragem) {
+                string p_nome;
+                string u_nome;
+                cout << "Primeiro nome: ";
+                cin >> p_nome;
+                cout << endl;
+                cout << "Ultimo nome: ";
+                cin >> u_nome;
+                cout << endl;
+                temp->autocarro.p_nome_C = p_nome;
+                temp->autocarro.u_nome_C = u_nome;
+            }
+            else
+                temp = temp->seguinte;
+        }
+        else {
+            cout << "O autocarro nÃ£o existe "<<endl;
+            break;
+        }
+    }
+    
+    
+}
+
+
 void criarPercurso(percurso& pe, string* listaParagens) //diogo, pedro, mai e cupido 22/5
 {
 
@@ -14,11 +47,11 @@ void criarPercurso(percurso& pe, string* listaParagens) //diogo, pedro, mai e cu
 
     aux->nome = listaParagens[rand() % (NUM_PARAGENS - 9) + 9]; // nome da primeira paragem
 
-    percurso::paragem* temp = new percurso::paragem; // passa para a próxima antes de entrar no ciclo for
+    percurso::paragem* temp = new percurso::paragem; // passa para a prÃ³xima antes de entrar no ciclo for
     aux->seguinte = temp;
     aux = aux->seguinte;
 
-    for (int j = 1; j <= numParagensIntermedias; j++) { // não são aleatórias (não é preciso)
+    for (int j = 1; j <= numParagensIntermedias; j++) { // nÃ£o sÃ£o aleatÃ³rias (nÃ£o Ã© preciso)
 
         aux->nome = listaParagens[j-1];
         percurso::paragem* temp = new percurso::paragem;
@@ -28,8 +61,8 @@ void criarPercurso(percurso& pe, string* listaParagens) //diogo, pedro, mai e cu
     }
 
     do {
-        aux->nome = listaParagens[rand() % (NUM_PARAGENS - 9) + 9]; // dá um nome à última paragem
-    } while (aux->nome == pe.inicio->nome); // se for igual à primeira, repete a atribuição ^ , e verifica denovo
+        aux->nome = listaParagens[rand() % (NUM_PARAGENS - 9) + 9]; // dÃ¡ um nome Ã  Ãºltima paragem
+    } while (aux->nome == pe.inicio->nome); // se for igual Ã  primeira, repete a atribuiÃ§Ã£o ^ , e verifica denovo
     aux->seguinte = NULL;
 
 }

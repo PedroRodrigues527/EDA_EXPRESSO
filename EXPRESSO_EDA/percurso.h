@@ -3,8 +3,6 @@
 #include "Fila.h"
 using namespace std;
 
-void alteraMotorista(percurso& pe);
-
 struct autocarro { // mai
 
 	Item* primeiro; // apontador para lista ligada de passageiros
@@ -45,3 +43,5 @@ void criarPercurso(percurso& pe, string* listaParagens);
 void imprimirPercurso(percurso& pe);
 
 bool autocarroExiste(autocarro ac);
+
+void alteraMotorista(percurso& pe);

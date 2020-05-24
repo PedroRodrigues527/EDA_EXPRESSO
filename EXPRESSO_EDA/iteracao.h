@@ -5,7 +5,7 @@
 
 // Para funções que correrão em cada iteração na execução
 
-void menuOpcoes();
+//void menuOpcoes(percurso pe);
 
 // CHEIO DE ERROS (NAO DETETA / DETETA A SI PROPRIO ??)
 

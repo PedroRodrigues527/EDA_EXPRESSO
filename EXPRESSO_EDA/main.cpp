@@ -38,15 +38,15 @@ int main() {
 	char escolha_do_utilizador;
 	do { // (mai e paulo drumond 18/05)
 		cout << endl << "---------------" << endl;
-		cout << " Pressione 'o' para poder ver as opÃ§Ãµes disponiveis." << endl;
-		cout << " Pressione 's' para seguir para a prÃ³xima iteraÃ§Ã£o." << endl;
-		cout << " Prima qualquer outra tecla para fechar o programa e terminar a execuÃ§Ã£o." << endl;
+		cout << " Pressione 'o' para poder ver as opções disponiveis." << endl;
+		cout << " Pressione 's' para seguir para a próxima iteração." << endl;
+		cout << " Prima qualquer outra tecla para fechar o programa e terminar a execução." << endl;
 		cin >> escolha_do_utilizador;
 
 		switch (escolha_do_utilizador)
 		{
-		case 'o': // aceder Ã s operaÃ§Ãµes
-			menuOpcoes();
+		case 'o': // aceder às operações
+			menuOpcoes(pe);
 			break;
 		case 's': // iterar
 			//incompleto
@@ -60,7 +60,7 @@ int main() {
 			break;
 		}
 
-	} while ((escolha_do_utilizador == 'o') || (escolha_do_utilizador == 's')); // repetir enquanto que a opÃ§Ã£o escolhida nÃ£o for 'o' nem 's'
+	} while ((escolha_do_utilizador == 'o') || (escolha_do_utilizador == 's')); // repetir enquanto que a opção escolhida não for 'o' nem 's'
 
 	return 0;
 }

@@ -60,7 +60,7 @@ autocarro cria_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES])
     return novo;
 }
 
-Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], percurso pe, Item* Fila) // mai com ajuda do cupido (WIP)
+Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], percurso pe, Item* Fila) // mai com ajuda do cupido
 {
     autocarro novo = cria_autocarro(pnomes, unomes);
     Item* temp1 = Fila;
@@ -72,19 +72,9 @@ Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], 
     Fila = temp1->seguinte;
     temp1->seguinte = NULL;
 
-    /*cout << endl;
-    Item* aux = novo.primeiro;
-    do {
-        cout << aux->pessoa.u_nome << endl;
-        aux = aux->seguinte;
-    } while (aux != NULL);
-    cout << novo.capacidade;*/
-
-
     percurso::paragem* temp = pe.inicio;
     percurso::paragem* paragem1 = pe.inicio;
 
-    //int c = 0;
 
     if (!autocarroExiste(paragem1->autocarro)) {
         paragem1->autocarro = novo;
@@ -92,17 +82,11 @@ Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], 
     else {
         while (autocarroExiste(paragem1->autocarro)) {
             temp = paragem1;
-            //c = 0;
-            while (autocarroExiste(temp->seguinte->autocarro) /*&& c < pe.numParagensTotal*/) {
-                cout << hex << temp->seguinte->autocarro.matricula << endl << dec;
+            while (temp->seguinte->seguinte != NULL && autocarroExiste(temp->seguinte->autocarro)) {
                 temp = temp->seguinte;
-                //c++;
             }
-            //if (c != pe.numParagensTotal) {
             temp->seguinte->autocarro = temp->autocarro; // trocar o na posição atual com o vazio
             temp->autocarro.matricula = 0;
-            //}
-            //cout << hex << temp->autocarro.matricula << endl << dec << "test" << endl;
         }
         pe.inicio->autocarro = novo;
     }

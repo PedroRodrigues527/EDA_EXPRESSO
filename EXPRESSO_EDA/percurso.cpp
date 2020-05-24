@@ -73,7 +73,6 @@ void imprimirPercurso(percurso& pe) // mai
             }
         }
 
-
         cout << endl << endl;
         temp = temp->seguinte;
 

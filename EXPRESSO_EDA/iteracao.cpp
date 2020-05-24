@@ -5,16 +5,16 @@
 #include <iostream>
 using namespace std;
 
-void menuOpcoes() //paulo drumond 18/05
+void menuOpcoes(percurso pe) //paulo drumond 18/05
 {
-    int num_opcao; // opÁ„o de 1 a 5 escolhida pelo utilizador
+    int num_opcao; // op√ß√£o de 1 a 5 escolhida pelo utilizador
    
     cout << "1.Remover passageiros nos autocarros." << endl;
     cout << "2.Remover passageiros em fila de espera" << endl;
     cout << "3.Apresentar bilhetes por paragem" << endl;
     cout << "4.Alterar motorista" << endl;
     cout << "5.Remover bilhete da paragem" << endl;
-    cout << "-- Introduza o numero da opÁ„o a que pretende aceder --" << endl;
+    cout << "-- Introduza o numero da op√ß√£o a que pretende aceder --" << endl;
 
     cin >> num_opcao;
 
@@ -22,19 +22,19 @@ void menuOpcoes() //paulo drumond 18/05
     {
 
     case 1:
-        cout << "Escolheu a opÁ„o: 1.Remover passageiros nos autocarros." << endl;
+        cout << "Escolheu a op√ß√£o: 1.Remover passageiros nos autocarros." << endl;
         break;
     case 2:
-        cout << "Escolheu a opÁ„o: 2.Remover passageiros em fila de espera" << endl;
+        cout << "Escolheu a op√ß√£o: 2.Remover passageiros em fila de espera" << endl;
         break;
     case 3:
-        cout << "Escolheu a opÁ„o : 3.Apresentar bilhetes por paragem" << endl;
+        cout << "Escolheu a op√ß√£o : 3.Apresentar bilhetes por paragem" << endl;
         break;
     case 4:
-        cout << "Escolheu a opÁ„o: 4.Alterar motorista" << endl;
+        cout << "Escolheu a op√ß√£o: 4.Alterar motorista" << endl;
         break;
     case 5:
-        cout << "Escolheu a opÁ„o: 5.Remover bilhete da paragem" << endl;
+        cout << "Escolheu a op√ß√£o: 5.Remover bilhete da paragem" << endl;
 
     default:
         break;
@@ -54,7 +54,7 @@ autocarro cria_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES])
     //capacidade
     novo.capacidade = rand() % 6 + 5; //de 5 a 10
 
-    //inicializaÁ„o da lista ligada de passageiros
+    //inicializa√ß√£o da lista ligada de passageiros
     novo.primeiro = new Item;
 
     return novo;
@@ -99,7 +99,7 @@ Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], 
                 //c++;
             }
             //if (c != pe.numParagensTotal) {
-            temp->seguinte->autocarro = temp->autocarro; // trocar o na posiÁ„o atual com o vazio
+            temp->seguinte->autocarro = temp->autocarro; // trocar o na posi√ß√£o atual com o vazio
             temp->autocarro.matricula = 0;
             //}
             //cout << hex << temp->autocarro.matricula << endl << dec << "test" << endl;
@@ -107,5 +107,5 @@ Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], 
         pe.inicio->autocarro = novo;
     }
 
-    return Fila; // porque atualiz·mos o apontador para o inicio da fila
+    return Fila; // porque atualiz√°mos o apontador para o inicio da fila
 }

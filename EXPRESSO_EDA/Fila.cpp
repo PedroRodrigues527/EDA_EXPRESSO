@@ -10,7 +10,7 @@ void printItem(string name, int tam) { // professor
 	int count_n = 0;
 	for (i = 0; i < name.size(); ++i)
 	{
-		std::cout << name[i];
+		cout << name[i];
 		if ((int)name[i] < 0)
 			count_n++;
 

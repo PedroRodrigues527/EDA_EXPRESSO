@@ -13,8 +13,6 @@ using namespace std;
 locale pt = pt.global(locale("pt-PT.UTF8"));
 
 
-void RemoverPessoaAutocarro(percurso::paragem* inicio);
-
 int main() {
 
 	//locale pt = pt.global(locale("pt-PT.UTF8"));
@@ -43,6 +41,9 @@ int main() {
 	bilhete* bilhetesUsados = new bilhete;
 
 	inicializaFila(Fila, listaPrimeironome, listaUltimonome, bilhetesUsados);
+	bilhete* aux = bilhetesUsados;
+	bilhetesUsados = bilhetesUsados->dir;
+	delete aux;
 
 	imprimeFila(Fila);
 
@@ -54,21 +55,19 @@ int main() {
 	imprimirPercurso(pe);
 
 
-
+	// teste
 	/*bilhete* raiz = NULL;
 	raiz = insereArvoreBilhetes(12, raiz);
 	raiz = insereArvoreBilhetes(11, raiz);
 	raiz = insereArvoreBilhetes(13, raiz);
+	raiz = insereArvoreBilhetes(1, raiz);
 	raiz = insereArvoreBilhetes(16, raiz);
-	raiz = insereArvoreBilhetes(1, raiz);*/
 
-	/*bool teste = procuraArvoreBilhetes(2, raiz);
+	bool teste = procuraArvoreBilhetes(1, raiz);
 	if (teste) {
 		cout << "a" << endl;
 	}*/
 
-
-	
 	char escolha_do_utilizador;
 	do { // (mai e paulo drumond 18/05)
 		cout << endl << "---------------" << endl;

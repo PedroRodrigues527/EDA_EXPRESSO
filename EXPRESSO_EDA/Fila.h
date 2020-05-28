@@ -1,5 +1,4 @@
 #pragma once
-//#include "inicio.h"
 #include <string>
 
 using namespace std;

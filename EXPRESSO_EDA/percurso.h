@@ -26,7 +26,7 @@ struct percurso { //pedro e mai
 
 	struct paragem {
 		autocarro autocarro;
-		bilhete* arvore_bilhetes; // apontador para o inicio da arvore binária
+		bilhete* arvore_bilhetes = new bilhete; // apontador para o inicio da arvore binária
 		string nome;
 		paragem* seguinte = NULL;
 		int index; // será o index da paragem, utilizado quando o utilizador precisa de escolher uma paragem
@@ -36,9 +36,11 @@ struct percurso { //pedro e mai
 	paragem* inicio;
 };
 
-bilhete* novoNodo_ArvoreBilhetes(int num_bilhete);
+bilhete* novoNodoArvoreBilhetes(int num_bilhete);
 bilhete* insereArvoreBilhetes(int num_bilhete, bilhete* raiz);
 bool procuraArvoreBilhetes(int num_bilhete, bilhete* raiz);
+void imprimeArvoreBilhetes(bilhete* raiz, int nivel);
+void imprimeArvoreBilhetesInfixa(bilhete* raiz);
 
 void criarPercurso(percurso& pe, string* listaParagens);
 void imprimirPercurso(percurso& pe);

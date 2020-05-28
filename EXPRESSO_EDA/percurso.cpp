@@ -37,7 +37,7 @@ void alteraMotorista(percurso& pe)//todos
 }
 
 
-bilhete* novoNodo_ArvoreBilhetes(int num_bilhete) // mai
+bilhete* novoNodoArvoreBilhetes(int num_bilhete) // mai
 {
     bilhete* novo = new bilhete;
 
@@ -45,33 +45,27 @@ bilhete* novoNodo_ArvoreBilhetes(int num_bilhete) // mai
     novo->esq = NULL;
     novo->dir = NULL;
 
+    //cout << "new: " << num_bilhete << " -> " << novo << endl;
+
     return novo;
 }
 
 bilhete* insereArvoreBilhetes(int num_bilhete, bilhete* raiz) // mai
 {
-    bilhete* aux = raiz;
-    bilhete* prev = NULL;
-
-    if (aux == NULL) {
-        aux = novoNodo_ArvoreBilhetes(num_bilhete);
+    //cout << " " << num_bilhete << " " << raiz << endl;
+    if (raiz == NULL) {
+        //cout << "   " << num_bilhete  << " " << raiz << endl;
+        return novoNodoArvoreBilhetes(num_bilhete);
     }
-    else
-    {
-        while (raiz != NULL) {
-            prev = raiz;
-            raiz = (raiz->num < num_bilhete ? raiz->dir : raiz->esq);
-        }
-
-        if (prev->num < num_bilhete) {
-            prev->dir = novoNodo_ArvoreBilhetes(num_bilhete);
-        }
-        else {
-            prev->esq = novoNodo_ArvoreBilhetes(num_bilhete);
-        }
+    else if (num_bilhete > raiz->num) {
+        //cout << " went right" << endl;
+        raiz->dir = insereArvoreBilhetes(num_bilhete, raiz->dir);
     }
-
-    return aux;
+    else {
+        //cout << " went left" << endl;
+        raiz->esq = insereArvoreBilhetes(num_bilhete, raiz->esq);
+    }
+    return raiz;
 }
 
 bool procuraArvoreBilhetes(int num_bilhete, bilhete* raiz)  // mai 28/05
@@ -92,6 +86,32 @@ bool procuraArvoreBilhetes(int num_bilhete, bilhete* raiz)  // mai 28/05
         }
     }
     return existe;
+}
+
+void imprimeArvoreBilhetes(bilhete* raiz, int n) // mai
+{
+    if (raiz == NULL) {
+        cout << endl;
+        return;
+    }
+    imprimeArvoreBilhetes(raiz->dir, n + 1);
+
+    for (int i = 0; i < n; i++) {
+        cout << ".   ";
+    }
+    cout << raiz->num << endl;
+
+    imprimeArvoreBilhetes(raiz->esq, n + 1);
+}
+
+void imprimeArvoreBilhetesInfixa(bilhete* raiz) // mai
+{
+    if (raiz == NULL) {
+        return;
+    }
+    imprimeArvoreBilhetesInfixa(raiz->esq);
+    cout << raiz->num << "; ";
+    imprimeArvoreBilhetesInfixa(raiz->dir);
 }
 
 void criarPercurso(percurso& pe, string* listaParagens) //diogo, pedro, mai e cupido 22/5

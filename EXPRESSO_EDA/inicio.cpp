@@ -20,7 +20,7 @@ Pessoa criaPessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], bilhet
         num_bilhete = rand() % 10000 + 1000;
     }
 
-    insereArvoreBilhetes(num_bilhete, bilhetesUsados);
+    bilhetesUsados = insereArvoreBilhetes(num_bilhete, bilhetesUsados);
     novaPessoa.numero_bilhete = num_bilhete;
     return novaPessoa;
 }

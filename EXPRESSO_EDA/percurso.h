@@ -39,6 +39,8 @@ struct percurso { //pedro e mai
 bilhete* novoNodoArvoreBilhetes(int num_bilhete);
 bilhete* insereArvoreBilhetes(int num_bilhete, bilhete* raiz);
 bool procuraArvoreBilhetes(int num_bilhete, bilhete* raiz);
+bilhete* removerArvoreBilhetes(bilhete* root, int num);
+bilhete* removerArvoreBilhetes(bilhete* root, bilhete* no, bilhete* prev);
 void imprimeArvoreBilhetes(bilhete* raiz, int nivel);
 void imprimeArvoreBilhetesInfixa(bilhete* raiz);
 

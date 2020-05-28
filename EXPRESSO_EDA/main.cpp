@@ -55,7 +55,7 @@ int main() {
 	imprimirPercurso(pe);
 
 
-	// teste
+	//teste
 	/*bilhete* raiz = NULL;
 	raiz = insereArvoreBilhetes(12, raiz);
 	raiz = insereArvoreBilhetes(11, raiz);
@@ -67,6 +67,8 @@ int main() {
 	if (teste) {
 		cout << "a" << endl;
 	}*/
+
+
 
 	char escolha_do_utilizador;
 	do { // (mai e paulo drumond 18/05)

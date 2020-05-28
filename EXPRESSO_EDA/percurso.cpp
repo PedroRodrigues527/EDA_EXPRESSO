@@ -88,6 +88,91 @@ bool procuraArvoreBilhetes(int num_bilhete, bilhete* raiz)  // mai 28/05
     return existe;
 }
 
+bilhete* removerArvoreBilhetes(bilhete* raiz, int num) {
+    bilhete* no = raiz;
+    bilhete* prev = NULL;
+    while (no != NULL) {
+        if (num == no->num) {
+            return removerArvoreBilhetes(raiz, no, prev);
+        }
+        else if (num < no->num) {
+            prev = no;
+            no = no->esq;
+        }
+        else {
+            prev = no;
+            no = no->dir;
+        }
+
+    }
+    return raiz;
+}
+
+bilhete* removerArvoreBilhetes(bilhete* root, bilhete* no, bilhete* prev) {
+    //removing the root
+    if (prev == NULL) {
+        if (no->esq == NULL && no->dir == NULL)
+            root = NULL;
+        else if (no->esq != NULL && no->dir == NULL)
+            root = no->esq;
+        else if (no->esq == NULL && no->dir != NULL)
+            root = no->dir;
+        else {
+            //copy step
+            bilhete* temp = no->esq;
+            prev = root;
+            while (temp->dir != NULL) {
+                prev = temp;
+                temp = temp->dir;
+            }
+            swap(temp->num, root->num);
+            if (prev->num >= root->num || prev == root)
+                prev->esq = temp->esq;
+            else
+                prev->dir = temp->esq;
+
+            no = temp;
+        }
+    }
+    else { // any other bilhete
+        if (no->esq == NULL && no->dir == NULL) {
+            if (prev->num > no->num)
+                prev->esq = NULL;
+            else
+                prev->dir = NULL;
+        }
+        else if (no->esq == NULL && no->dir != NULL) {
+            if (prev->num > no->num)
+                prev->esq = no->dir;
+            else
+                prev->dir = no->dir;
+        }
+        else if (no->esq != NULL && no->dir == NULL) {
+            if (prev->num > no->num)
+                prev->esq = no->esq;
+            else
+                prev->esq = no->esq;
+        }
+        else { // copy step
+            bilhete* temp = no->esq;
+            prev = no;
+            while (temp->dir != NULL) {
+                prev = temp;
+                temp = temp->dir;
+            }
+            swap(temp->num, no->num);
+            if (prev->num > no->num || prev == no)
+                prev->esq = temp->esq;
+            else
+                prev->dir = temp->esq;
+
+            no = temp;
+        }
+    }
+    delete no;
+    return root;
+}
+
 void imprimeArvoreBilhetes(bilhete* raiz, int n) // mai
 {
     if (raiz == NULL) {

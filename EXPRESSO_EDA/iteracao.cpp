@@ -4,6 +4,8 @@
 #include <string>
 using namespace std;
 
+void RemoverPessoaAutocarro(percurso::paragem* inicio);
+
 
 Item* menuOpcoes(percurso pe, Item* Fila) //paulo drumond 18/05
 {
@@ -23,6 +25,7 @@ Item* menuOpcoes(percurso pe, Item* Fila) //paulo drumond 18/05
 
     case 1:
         cout << "   Escolheu a opção: 1. Remover passageiros nos autocarros." << endl;
+        RemoverPessoaAutocarro(pe.inicio);
         break;
     case 2:
         cout << "   Escolheu a opção: 2. Remover passageiros em fila de espera" << endl;

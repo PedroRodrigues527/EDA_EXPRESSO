@@ -13,6 +13,8 @@ using namespace std;
 locale pt = pt.global(locale("pt-PT.UTF8"));
 
 
+void RemoverPessoaAutocarro(percurso::paragem* inicio);
+
 int main() {
 
 	//locale pt = pt.global(locale("pt-PT.UTF8"));

@@ -192,7 +192,7 @@ void RemoverPessoaAutocarro(percurso::paragem* inicio) { //cupido e mai
     if (!autocarroExiste(temp->autocarro)) {
         cout << "Nao existem autocarros!";
     }
-    while ((temp->seguinte != NULL) && (!removido) && autocarroExiste(temp->autocarro)) {
+    while ((temp != NULL) && (!removido) && autocarroExiste(temp->autocarro)) {
         Item* aux = temp->autocarro.primeiro;
         if (aux->pessoa.numero_bilhete == bilhete) {
             //cout << "foi ao inicio" << endl;

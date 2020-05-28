@@ -4,14 +4,13 @@ using namespace std;
 
 void alteraMotorista(percurso& pe)//todos
 {
-    string n_paragem;
-    cout << " Qual o nome da paragem onde se encontra o motorista? ";
-    cin.ignore();
-    getline(cin, n_paragem);
+    int index_paragem;
+    cout << " Qual o numero da paragem onde se encontra o motorista? ";
+    cin >> index_paragem;
     percurso::paragem* temp = pe.inicio;
     while (temp->seguinte != NULL) {
         if (autocarroExiste(temp->autocarro)) {
-            if (temp->nome == n_paragem) {
+            if (temp->index == index_paragem) {
                 string p_nome;
                 string u_nome;
                 cout << "Primeiro nome: ";

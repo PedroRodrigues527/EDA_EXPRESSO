@@ -44,5 +44,6 @@ void criarPercurso(percurso& pe, string* listaParagens);
 void imprimirPercurso(percurso& pe);
 
 bool autocarroExiste(autocarro ac);
+void RemoverPessoaAutocarro(percurso::paragem* inicio);
 
 void alteraMotorista(percurso& pe);

@@ -15,8 +15,6 @@ using namespace std;
 Pessoa criaPessoa(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], bilhete* bilhetesUsados);
 void inicializaFila(Item* primeiro, string* listaPnomes, string* listaUnomes, bilhete* bilhetesUsados);
 
-bool saida_passageiro();
-
 //Cupido 11/05/20
 void lerFicheiroPrimeiroNome(string* listaprimeironome);
 void lerFicheiroUltimoNome(string* listaultimonome);

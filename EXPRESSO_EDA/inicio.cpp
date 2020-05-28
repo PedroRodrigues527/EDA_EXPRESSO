@@ -33,12 +33,6 @@ void inicializaFila(Item* primeiro, string* listaPnomes, string* listaUnomes, bi
     }
 }
 
-bool saida_passageiro() //pedro
-{
-    //numero aleatorio de 1 a 4
-    return ((rand() % 4 + 1) == 1);
-    // se sair 1 o passageiro sai caso contrario nao sai
-}
 
 void lerFicheiroPrimeiroNome(string* listaprimeironome) { //Cupido 11/05
     ifstream myFile("primeiro_nome.txt");

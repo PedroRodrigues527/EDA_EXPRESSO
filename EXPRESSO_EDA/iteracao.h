@@ -13,3 +13,5 @@ void iteraFila(Item* primeiro, string* listaPnomes, string* listaUnomes, int num
 
 autocarro cria_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]);
 Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], percurso pe, Item* Fila);
+
+bool saida_passageiro();

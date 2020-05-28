@@ -108,3 +108,11 @@ Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], 
 
     return Fila; // porque atualizámos o apontador para o inicio da fila
 }
+
+
+bool saida_passageiro() //pedro
+{
+    //numero aleatorio de 1 a 4
+    return ((rand() % 4 + 1) == 1);
+    // se sair 1 o passageiro sai caso contrario nao sai
+}

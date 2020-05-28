@@ -12,8 +12,6 @@ using namespace std;
 
 locale pt = pt.global(locale("pt-PT.UTF8"));
 
-Item* menuOpcoes(percurso pe, Item* Fila);
-Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], percurso pe, Item* Fila); //PORQUE O ITERACAO.H NAO FUNCIONA 
 
 int main() {
 
@@ -25,6 +23,9 @@ int main() {
 
 	srand((unsigned)time(NULL));
 
+
+
+	// ler os ficheiros .txt
 	string* listaPrimeironome = new string[NUM_P_NOMES];
 	string* listaUltimonome = new string[NUM_U_NOMES];
 	string* listaParagens = new string[NUM_PARAGENS];
@@ -32,16 +33,38 @@ int main() {
 	lerFicheiroUltimoNome(listaUltimonome);
 	lerFicheiroParagens(listaParagens);
 
+
+
+	// inicialização da Fila de Espera
 	Item* Fila = new Item;
 	Fila->seguinte = NULL;
-	inicializaFila(Fila, listaPrimeironome, listaUltimonome);
+	bilhete* bilhetesUsados = new bilhete;
+
+	inicializaFila(Fila, listaPrimeironome, listaUltimonome, bilhetesUsados);
 
 	imprimeFila(Fila);
 
+
+	// inicialização do Percurso
 	percurso pe;
 	pe.inicio = new percurso::paragem;
 	criarPercurso(pe, listaParagens);
 	imprimirPercurso(pe);
+
+
+
+	/*bilhete* raiz = NULL;
+	raiz = insereArvoreBilhetes(12, raiz);
+	raiz = insereArvoreBilhetes(11, raiz);
+	raiz = insereArvoreBilhetes(13, raiz);
+	raiz = insereArvoreBilhetes(16, raiz);
+	raiz = insereArvoreBilhetes(1, raiz);*/
+
+	/*bool teste = procuraArvoreBilhetes(2, raiz);
+	if (teste) {
+		cout << "a" << endl;
+	}*/
+
 
 	
 	char escolha_do_utilizador;
@@ -54,20 +77,25 @@ int main() {
 
 		switch (escolha_do_utilizador)
 		{
+
 		case 'o': // aceder às operações
 			Fila = menuOpcoes(pe, Fila);
 			imprimeFila(Fila);
 			imprimirPercurso(pe);
 			break;
+
+
 		case 's': // iterar
 			//incompleto
 			Fila = inserir_autocarro(listaPrimeironome, listaUltimonome, pe, Fila);
 			cout << endl;
 
-			iteraFila(Fila, listaPrimeironome, listaUltimonome, 15);
+			iteraFila(Fila, listaPrimeironome, listaUltimonome, 15, bilhetesUsados);
 			imprimeFila(Fila);
 			imprimirPercurso(pe);
 			break;
+
+
 		default:
 			break;
 		}

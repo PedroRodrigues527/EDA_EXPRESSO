@@ -1,6 +1,7 @@
 #pragma once
-#include "inicio.h"
 #include "Fila.h"
+#define NUM_PARAGENS 53 //Cupido 11/05/20
+
 using namespace std;
 
 struct autocarro { // mai
@@ -17,8 +18,8 @@ struct autocarro { // mai
 // arvore de procura binária // mai
 struct bilhete {
 	int num;
-	bilhete* esq = NULL;
-	bilhete* dir = NULL;
+	struct bilhete* esq = NULL;
+	struct bilhete* dir = NULL;
 };
 
 struct percurso { //pedro e mai
@@ -37,6 +38,7 @@ struct percurso { //pedro e mai
 
 bilhete* novoNodo_ArvoreBilhetes(int num_bilhete);
 bilhete* insereArvoreBilhetes(int num_bilhete, bilhete* raiz);
+bool procuraArvoreBilhetes(int num_bilhete, bilhete* raiz);
 
 void criarPercurso(percurso& pe, string* listaParagens);
 void imprimirPercurso(percurso& pe);

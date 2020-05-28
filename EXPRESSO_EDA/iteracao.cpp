@@ -1,8 +1,7 @@
 #pragma once
-#include "Fila.h"
 #include "iteracao.h"
-#include "percurso.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 
@@ -26,17 +25,15 @@ Item* menuOpcoes(percurso pe, Item* Fila) //paulo drumond 18/05
         cout << "   Escolheu a opção: 1. Remover passageiros nos autocarros." << endl;
         break;
     case 2:
-        cout << "   Escolheu a opção: 2.Remover passageiros em fila de espera" << endl;
+        cout << "   Escolheu a opção: 2. Remover passageiros em fila de espera" << endl;
         Fila = RemoverPessoaFiladeEspera(Fila);
-        imprimeFila(Fila);
         break;
     case 3:
         cout << "   Escolheu a opção: 3. Apresentar bilhetes por paragem" << endl;
         break;
     case 4:
-        cout << "   Escolheu a opção: 4.Alterar motorista" << endl;
+        cout << "   Escolheu a opção: 4. Alterar motorista" << endl;
         alteraMotorista(pe);
-        imprimeFila(Fila);
         break;
     case 5:
         cout << "   Escolheu a opção: 5. Remover bilhete da paragem" << endl;
@@ -45,6 +42,15 @@ Item* menuOpcoes(percurso pe, Item* Fila) //paulo drumond 18/05
         break;
     }
     return Fila;
+}
+
+
+void iteraFila(Item* primeiro, string* listaPnomes, string* listaUnomes, int num, bilhete* bilhetesUsados) // mai 23/05
+{
+    for (int i = 0; i < num; i++) {
+        Pessoa novapessoa = criaPessoa(listaPnomes, listaUnomes, bilhetesUsados);
+        entraFila(primeiro, novapessoa);
+    }
 }
 
 autocarro cria_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES]) //Cupido e Pedro 18/05 e mai 22/05

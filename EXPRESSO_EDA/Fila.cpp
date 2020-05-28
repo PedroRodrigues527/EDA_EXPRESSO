@@ -1,8 +1,7 @@
+#pragma once
 #include "Fila.h"
-#include "percurso.h"
 #include <iostream>
 #include <iomanip>
-#include <string>
 
 using namespace std;
 
@@ -22,14 +21,6 @@ void printItem(string name, int tam) { // professor
 	while (i <= tam) {
 		cout << " ";
 		i++;
-	}
-}
-
-void inicializaFila(Item* primeiro, string* listaPnomes, string* listaUnomes) { //mai 11/05
-	primeiro->pessoa = criaPessoa(listaPnomes, listaUnomes);
-	for (int i = 1; i < 30; i++) {
-		Pessoa novapessoa = criaPessoa(listaPnomes, listaUnomes);
-		entraFila(primeiro, novapessoa);
 	}
 }
 
@@ -75,14 +66,6 @@ void entraFila(Item* primeiro, Pessoa novapessoa) { //mai 11/05
 			temp = temp->seguinte;
 		}
 		temp->seguinte = aux;
-	}
-}
-
-void iteraFila(Item* primeiro, string* listaPnomes, string* listaUnomes, int num) // mai 23/05
-{
-	for (int i = 0; i < num; i++) {
-		Pessoa novapessoa = criaPessoa(listaPnomes, listaUnomes);
-		entraFila(primeiro, novapessoa);
 	}
 }
 

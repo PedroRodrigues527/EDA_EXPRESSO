@@ -1,5 +1,4 @@
 #include "percurso.h"
-#include "iteracao.h"
 #include <iostream>
 using namespace std;
 
@@ -39,7 +38,7 @@ void alteraMotorista(percurso& pe)//todos
 }
 
 
-bilhete* novoNodo_ArvoreBilhetes(int num_bilhete)
+bilhete* novoNodo_ArvoreBilhetes(int num_bilhete) // mai
 {
     bilhete* novo = new bilhete;
 
@@ -50,7 +49,7 @@ bilhete* novoNodo_ArvoreBilhetes(int num_bilhete)
     return novo;
 }
 
-bilhete* insereArvoreBilhetes(int num_bilhete, bilhete* raiz)
+bilhete* insereArvoreBilhetes(int num_bilhete, bilhete* raiz) // mai
 {
     bilhete* aux = raiz;
     bilhete* prev = NULL;
@@ -62,11 +61,10 @@ bilhete* insereArvoreBilhetes(int num_bilhete, bilhete* raiz)
     {
         while (raiz != NULL) {
             prev = raiz;
-            raiz = (num_bilhete > raiz->num ? raiz->esq : raiz->dir);
-            cout << "proximo" << endl;
+            raiz = (raiz->num < num_bilhete ? raiz->dir : raiz->esq);
         }
 
-        if (num_bilhete > prev->num) {
+        if (prev->num < num_bilhete) {
             prev->dir = novoNodo_ArvoreBilhetes(num_bilhete);
         }
         else {
@@ -75,6 +73,26 @@ bilhete* insereArvoreBilhetes(int num_bilhete, bilhete* raiz)
     }
 
     return aux;
+}
+
+bool procuraArvoreBilhetes(int num_bilhete, bilhete* raiz)  // mai 28/05
+{
+    bool existe = false;
+    if (raiz == NULL) {
+        return false;
+    }
+    if (num_bilhete == raiz->num) {
+        existe = true;
+    }
+    else {
+        if (num_bilhete > raiz->num) {
+            return procuraArvoreBilhetes(num_bilhete, raiz->dir);
+        }
+        else {
+            return procuraArvoreBilhetes(num_bilhete, raiz->esq);
+        }
+    }
+    return existe;
 }
 
 void criarPercurso(percurso& pe, string* listaParagens) //diogo, pedro, mai e cupido 22/5

@@ -103,8 +103,12 @@ void criarPercurso(percurso& pe, string* listaParagens) //diogo, pedro, mai e cu
     percurso::paragem* aux = new percurso::paragem;
 
     aux = pe.inicio;
+    int i = 1; // será o index da paragem, utilizado quando o utilizador precisa de escolher uma paragem
+
+    //criação das paragens propriamente ditas
 
     aux->nome = listaParagens[rand() % (NUM_PARAGENS - 9) + 9]; // nome da primeira paragem
+    aux->index = i;
 
     percurso::paragem* temp = new percurso::paragem; // passa para a próxima antes de entrar no ciclo for
     aux->seguinte = temp;
@@ -113,6 +117,8 @@ void criarPercurso(percurso& pe, string* listaParagens) //diogo, pedro, mai e cu
     for (int j = 1; j <= numParagensIntermedias; j++) { // não são aleatórias (não é preciso)
 
         aux->nome = listaParagens[j-1];
+        i++;
+        aux->index = i;
         percurso::paragem* temp = new percurso::paragem;
         aux->seguinte = temp;
         aux = aux->seguinte;
@@ -122,7 +128,11 @@ void criarPercurso(percurso& pe, string* listaParagens) //diogo, pedro, mai e cu
     do {
         aux->nome = listaParagens[rand() % (NUM_PARAGENS - 9) + 9]; // dá um nome à última paragem
     } while (aux->nome == pe.inicio->nome); // se for igual à primeira, repete a atribuição ^ , e verifica denovo
+
     aux->seguinte = NULL;
+
+    i++;
+    aux->index = i;
 
 }
 
@@ -134,7 +144,7 @@ void imprimirPercurso(percurso& pe) // mai
 
     do {
 
-        cout << "Paragem : " << temp->nome << endl;
+        cout << "Paragem #" << temp->index << ": " << temp->nome << endl;
 
 
         cout << "Autocarro : ";

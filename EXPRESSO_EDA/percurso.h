@@ -29,12 +29,12 @@ struct percurso { //pedro e mai
 		bilhete* arvore_bilhetes; // apontador para o inicio da arvore binária
 		string nome;
 		paragem* seguinte = NULL;
+		int index; // será o index da paragem, utilizado quando o utilizador precisa de escolher uma paragem
 	};
 
 	int numParagensTotal;
 	paragem* inicio;
 };
-
 
 bilhete* novoNodo_ArvoreBilhetes(int num_bilhete);
 bilhete* insereArvoreBilhetes(int num_bilhete, bilhete* raiz);

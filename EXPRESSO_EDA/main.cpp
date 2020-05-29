@@ -38,10 +38,10 @@ int main() {
 	// inicialização da Fila de Espera
 	Item* Fila = new Item;
 	Fila->seguinte = NULL;
-	bilhete* bilhetesUsados = new bilhete;
+	bilhete* bilhetesUsados = new bilhete; // inicializamos para não ter que atualizar pelo inicializaFila
 
 	inicializaFila(Fila, listaPrimeironome, listaUltimonome, bilhetesUsados);
-	bilhete* aux = bilhetesUsados;
+	bilhete* aux = bilhetesUsados; // removemos o valor "inicializado" que é sempre negativo e, logo, o resto da árvore encontra-se na sua sub-arvore direita
 	bilhetesUsados = bilhetesUsados->dir;
 	delete aux;
 
@@ -55,23 +55,25 @@ int main() {
 	imprimirPercurso(pe);
 
 
-	//teste
+	//testes das arvores
 	/*bilhete* raiz = NULL;
 	raiz = insereArvoreBilhetes(12, raiz);
 	raiz = insereArvoreBilhetes(11, raiz);
 	raiz = insereArvoreBilhetes(13, raiz);
+	raiz = insereArvoreBilhetes(2, raiz);
 	raiz = insereArvoreBilhetes(1, raiz);
-	raiz = insereArvoreBilhetes(16, raiz);
+	raiz = insereArvoreBilhetes(3, raiz);
+	raiz = insereArvoreBilhetes(16, raiz);	
+	imprimeArvoreBilhetes(raiz);
 
-	bool teste = procuraArvoreBilhetes(1, raiz);
-	if (teste) {
-		cout << "a" << endl;
-	}*/
+	imprimeArvoreBilhetes(bilhetesUsados);*/
+
 
 
 
 	char escolha_do_utilizador;
 	do { // (mai e paulo drumond 18/05)
+
 		cout << endl << "---------------" << endl;
 		cout << " Pressione 'o' para poder ver as opções disponiveis." << endl;
 		cout << " Pressione 's' para seguir para a próxima iteração." << endl;
@@ -82,14 +84,15 @@ int main() {
 		{
 
 		case 'o': // aceder às operações
+
 			Fila = menuOpcoes(pe, Fila);
 			imprimeFila(Fila);
 			imprimirPercurso(pe);
+
 			break;
 
-
 		case 's': // iterar
-			//incompleto
+
 			Fila = inserir_autocarro(listaPrimeironome, listaUltimonome, pe, Fila);
 			cout << endl;
 
@@ -98,12 +101,12 @@ int main() {
 			imprimirPercurso(pe);
 			break;
 
-
 		default:
+
 			break;
 		}
 
-	} while ((escolha_do_utilizador == 'o') || (escolha_do_utilizador == 's')); // repetir enquanto que a opção escolhida não for 'o' nem 's'
+	} while ((escolha_do_utilizador == 'o') || (escolha_do_utilizador == 's')); // repetir até que a opção escolhida não seja 'o' nem 's'
 
 	return 0;
 }

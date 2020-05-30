@@ -40,6 +40,13 @@ void alteraMotorista(percurso& pe)//todos
     cin.ignore();
 }
 
+void inserirBilhetePassageiro(int bilhete, percurso::paragem* pa)
+{
+    pa->arvore_bilhetes = insereArvoreBilhetes(bilhete, pa->arvore_bilhetes);
+    cout << endl;
+    cout << "Inserido com sucesso"<<endl;
+}
+
 
 bilhete* novoNodoArvoreBilhetes(int num_bilhete) // mai
 {
@@ -50,6 +57,7 @@ bilhete* novoNodoArvoreBilhetes(int num_bilhete) // mai
 
     return novo;
 }
+
 
 
 bilhete* insereArvoreBilhetes(int num_bilhete, bilhete* raiz) // mai

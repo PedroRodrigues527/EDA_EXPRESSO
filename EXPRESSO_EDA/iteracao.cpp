@@ -119,3 +119,4 @@ bool saida_passageiro() //pedro
     return ((rand() % 4 + 1) == 1);
     // se sair 1 o passageiro sai caso contrario nao sai
 }
+

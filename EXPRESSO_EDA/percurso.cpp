@@ -44,7 +44,7 @@ void inserirBilhetePassageiro(int bilhete, percurso::paragem* pa)
 {
     pa->arvore_bilhetes = insereArvoreBilhetes(bilhete, pa->arvore_bilhetes);
     cout << endl;
-    cout << "Inserido com sucesso"<<endl;
+    cout << "Inserido com sucesso" << endl;
 }
 
 
@@ -366,50 +366,67 @@ void imprimirPercurso(percurso& pe) // mai
 
 }
 
-
 void RemoverPessoaAutocarro(percurso::paragem* inicio) { //cupido e mai
+
     int bilhete;
     bool removido = false;
     cout << "Insira o numero de bilhete do passageiro que deseja remover dos autocarros: ";
     cin >> bilhete;
+
     percurso::paragem* temp = inicio;
     Item* aux = NULL;
+    Pessoa pessoa_removida;
+
     if (!autocarroExiste(temp->autocarro)) {
-        cout << "Nao existem autocarros!";
+        cout << "Nao existem autocarros! ";
     }
     else {
+
         while ((temp != NULL) && (!removido) && autocarroExiste(temp->autocarro)) {
+
             aux = temp->autocarro.primeiro;
+
             if (aux->pessoa.numero_bilhete == bilhete) {
+
                 //cout << "foi ao inicio" << endl;
+                pessoa_removida = aux->pessoa;
                 temp->autocarro.primeiro = removerInicio(temp->autocarro.primeiro);
                 temp->autocarro.capacidade -= 1;
+
                 removido = true;
                 break;
             }
+
             for (int i = 0; i < temp->autocarro.capacidade; i++) {
                 if (aux->seguinte == NULL && aux->pessoa.numero_bilhete == bilhete) {
+
                     //cout << "foi ao fim" << endl;
+                    pessoa_removida = aux->pessoa;
                     temp->autocarro.primeiro = removerFim(temp->autocarro.primeiro);
                     temp->autocarro.capacidade -= 1;
+
                     removido = true;
                     break;
                 }
                 else if (aux->seguinte != NULL && aux->pessoa.numero_bilhete == bilhete) {
+
                     //cout << "foi ao meio" << endl;
+                    pessoa_removida = aux->pessoa;
                     temp->autocarro.primeiro = removerMeio(temp->autocarro.primeiro, bilhete);
                     temp->autocarro.capacidade -= 1;
+
                     removido = true;
                     break;
                 }
                 aux = aux->seguinte;
             }
             temp = temp->seguinte;
+            
         }
 
 
         if (removido) {
-            cout << "Passageiro " << aux->pessoa.p_nome << " " << aux->pessoa.u_nome << " foi removido com sucesso!" << endl;
+            cout << "Passageiro " << pessoa_removida.p_nome << " " << pessoa_removida.u_nome  << "(" << pessoa_removida.numero_bilhete << ")" << " foi removido com sucesso!" << endl;
         }
         else {
             cout << "Passageiro nao encontrado!" << endl;

@@ -62,4 +62,5 @@ void RemoverPessoaAutocarro(percurso::paragem* inicio);
 
 void alteraMotorista(percurso& pe);
 
+
 void inserirBilhetePassageiro(int bilhete, percurso::paragem* pa);

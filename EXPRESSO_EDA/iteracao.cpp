@@ -113,10 +113,37 @@ Item* inserir_autocarro(string pnomes[NUM_P_NOMES], string unomes[NUM_U_NOMES], 
 }
 
 
-bool saida_passageiro() //pedro
+bool verifica_saida_passageiro() //pedro
 {
     //numero aleatorio de 1 a 4
     return ((rand() % 4 + 1) == 1);
-    // se sair 1 o passageiro sai caso contrario nao sai
+    // se retornar 1, significa que o passageiro sai; caso contrario, não sai.
+    // para ser usado na função saida_passageiros
+}
+
+void saida_passageiros(percurso& pe)
+{
+
+    // para cada paragem, percorremos o autocarro dela.
+    // para cada passageiro do autocarro, usamos o verifica_saida_passageiro() para verificar se irá sair ou não nessa paragem
+    // se sair, corremos o inserirBilhetePassageiro para inserir o bilhete do passageiro na árvore da paragem onde estamos. 
+    // depois, removemos o passageiro do autocarro.
+    // se não sair, passa ao próximo e repete.
+    // depois de ver todos os passageiros atualmente presentes nos autocarros, sai do ciclo, e termina a execução.
+
+    percurso::paragem* paragem = pe.inicio; // começamos na primeira paragem do percurso
+    Item* aux = NULL; // pointer auxiliar que irá percorrer cada autocarro (que tem uma "Fila" de passageiros)
+
+    while ((paragem != NULL) && autocarroExiste(paragem->autocarro)) { // enquanto que a paragem atual existir e houver nela um autocarro...
+        aux = paragem->autocarro.primeiro; // o pointer auxiliar passa para o primeiro elemento da lista ligada de passageiros do autocarro
+        while (aux != NULL)
+        {
+            if (verifica_saida_passageiro()) { // por cada passageiro, verifica se irá sair. entra neste if só se for para sair
+                // implementar aqui código para retirar o passageiro atual
+            }
+            aux = aux->seguinte; // passa para o próximo passageiro;
+        }
+        paragem = paragem->seguinte; // passa para a próxima paragem, que terá o próximo autocarro;
+    }
 }
 

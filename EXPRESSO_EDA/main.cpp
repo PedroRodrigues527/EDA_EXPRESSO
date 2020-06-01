@@ -97,6 +97,9 @@ int main() {
 			cout << endl;
 
 			iteraFila(Fila, listaPrimeironome, listaUltimonome, 15, bilhetesUsados);
+
+			saida_passageiros(pe);
+
 			imprimeFila(Fila);
 			imprimirPercurso(pe);
 			break;

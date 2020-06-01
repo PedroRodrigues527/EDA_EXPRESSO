@@ -121,7 +121,7 @@ bool verifica_saida_passageiro() //pedro
     // para ser usado na função saida_passageiros
 }
 
-void saida_passageiros(percurso& pe)
+void saida_passageiros(percurso& pe) //todos
 {
 
     // para cada paragem, percorremos o autocarro dela.
@@ -132,6 +132,7 @@ void saida_passageiros(percurso& pe)
     // depois de ver todos os passageiros atualmente presentes nos autocarros, sai do ciclo, e termina a execução.
 
     percurso::paragem* paragem = pe.inicio; // começamos na primeira paragem do percurso
+    paragem = paragem->seguinte;
     Item* aux = NULL; // pointer auxiliar que irá percorrer cada autocarro (que tem uma "Fila" de passageiros)
 
     while ((paragem != NULL) && autocarroExiste(paragem->autocarro)) { // enquanto que a paragem atual existir e houver nela um autocarro...
@@ -139,7 +140,21 @@ void saida_passageiros(percurso& pe)
         while (aux != NULL)
         {
             if (verifica_saida_passageiro()) { // por cada passageiro, verifica se irá sair. entra neste if só se for para sair
-                // implementar aqui código para retirar o passageiro atual
+                cout << aux->pessoa.numero_bilhete << " " << aux->pessoa.p_nome << " " << aux->pessoa.u_nome << endl; //teste
+                inserirBilhetePassageiro(aux->pessoa.numero_bilhete, paragem); // implementar aqui código para retirar o passageiro atual
+                if (aux->seguinte == NULL) { //fim
+                    paragem->autocarro.primeiro = removerFim(paragem->autocarro.primeiro);
+                    paragem->autocarro.capacidade -= 1;
+                    break;
+                }
+                else if (aux == paragem->autocarro.primeiro) { //inicio
+                    paragem->autocarro.primeiro = removerInicio(paragem->autocarro.primeiro);
+                    aux = paragem->autocarro.primeiro;
+                }
+                else { //meio
+                    paragem->autocarro.primeiro = removerMeio(paragem->autocarro.primeiro, aux->pessoa.numero_bilhete);
+                }
+                paragem->autocarro.capacidade -= 1;
             }
             aux = aux->seguinte; // passa para o próximo passageiro;
         }

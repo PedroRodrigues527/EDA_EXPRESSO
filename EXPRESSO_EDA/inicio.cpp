@@ -1,9 +1,4 @@
 #include "inicio.h"
-//#include <fstream>
-//#include <iostream>
-//#include <iomanip>
-//#include <locale>
-//#include <string>
 
 using namespace std;
 

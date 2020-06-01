@@ -40,13 +40,6 @@ void alteraMotorista(percurso& pe)//todos
     cin.ignore();
 }
 
-void inserirBilhetePassageiro(int bilhete, percurso::paragem* pa)
-{
-    pa->arvore_bilhetes = insereArvoreBilhetes(bilhete, pa->arvore_bilhetes);
-    cout << endl;
-    cout << "Inserido com sucesso" << endl;
-}
-
 
 bilhete* novoNodoArvoreBilhetes(int num_bilhete) // mai
 {
@@ -386,42 +379,48 @@ void RemoverPessoaAutocarro(percurso::paragem* inicio) { //cupido e mai
 
             aux = temp->autocarro.primeiro;
 
-            if (aux->pessoa.numero_bilhete == bilhete) {
+            //cout << "teste: " << temp->index << endl;
 
-                //cout << "foi ao inicio" << endl;
-                pessoa_removida = aux->pessoa;
-                temp->autocarro.primeiro = removerInicio(temp->autocarro.primeiro);
-                temp->autocarro.capacidade -= 1;
+            if (aux != NULL) {
+                if (aux->pessoa.numero_bilhete == bilhete) {
 
-                removido = true;
-                break;
-            }
-
-            for (int i = 0; i < temp->autocarro.capacidade; i++) {
-                if (aux->seguinte == NULL && aux->pessoa.numero_bilhete == bilhete) {
-
-                    //cout << "foi ao fim" << endl;
+                    //cout << "foi ao inicio" << endl;
                     pessoa_removida = aux->pessoa;
-                    temp->autocarro.primeiro = removerFim(temp->autocarro.primeiro);
+                    inserirBilhetePassageiro(bilhete, temp);
+                    temp->autocarro.primeiro = removerInicio(temp->autocarro.primeiro);
                     temp->autocarro.capacidade -= 1;
 
                     removido = true;
                     break;
                 }
-                else if (aux->seguinte != NULL && aux->pessoa.numero_bilhete == bilhete) {
 
-                    //cout << "foi ao meio" << endl;
-                    pessoa_removida = aux->pessoa;
-                    temp->autocarro.primeiro = removerMeio(temp->autocarro.primeiro, bilhete);
-                    temp->autocarro.capacidade -= 1;
+                for (int i = 0; i < temp->autocarro.capacidade; i++) {
+                    if (aux->seguinte == NULL && aux->pessoa.numero_bilhete == bilhete) {
 
-                    removido = true;
-                    break;
+                        //cout << "foi ao fim" << endl;
+                        pessoa_removida = aux->pessoa;
+                        inserirBilhetePassageiro(bilhete, temp);
+                        temp->autocarro.primeiro = removerFim(temp->autocarro.primeiro);
+                        temp->autocarro.capacidade -= 1;
+
+                        removido = true;
+                        break;
+                    }
+                    else if (aux->seguinte != NULL && aux->pessoa.numero_bilhete == bilhete) {
+
+                        //cout << "foi ao meio" << endl;
+                        pessoa_removida = aux->pessoa;
+                        inserirBilhetePassageiro(bilhete, temp);
+                        temp->autocarro.primeiro = removerMeio(temp->autocarro.primeiro, bilhete);
+                        temp->autocarro.capacidade -= 1;
+
+                        removido = true;
+                        break;
+                    }
+                    aux = aux->seguinte;
                 }
-                aux = aux->seguinte;
             }
             temp = temp->seguinte;
-            
         }
 
 
@@ -440,6 +439,11 @@ void RemoverPessoaAutocarro(percurso::paragem* inicio) { //cupido e mai
 
 bool autocarroExiste(autocarro ac) { // mai
     return (ac.matricula != 0);
+}
+
+void inserirBilhetePassageiro(int bilhete, percurso::paragem* pa)
+{
+    pa->arvore_bilhetes = insereArvoreBilhetes(bilhete, pa->arvore_bilhetes);
 }
 
 void RemoverBilheteParagem(percurso& pe) { // todos
@@ -462,13 +466,23 @@ void RemoverBilheteParagem(percurso& pe) { // todos
         temp = temp->seguinte;
     }
 
-    if (existearvore) {
+    if (existearvore) 
+    {
+        cout << "--- Bilhetes da paragem #" << paragem << " ---" << endl;
         imprimeArvoreBilhetes(temp->arvore_bilhetes);
+
         cout << "Qual o numero de bilhete que quer remover? " << endl;
         cin >> numbilhete;
         temp->arvore_bilhetes = removerArvoreBilhetes(temp->arvore_bilhetes, numbilhete);
+
+        cout << "--- Após remoção: ---" << endl;
+        imprimeArvoreBilhetes(temp->arvore_bilhetes);
     }
     else {
-        cout << "Não existe arvore de bilhetes na paragem #" << paragem << " ." << endl;
+        cout << "Não existe arvore de bilhetes na paragem #" << paragem << "." << endl;
     }
+
+    cout << "Pressione ENTER para continuar.";
+    cin.get();
+    cin.ignore();
 }

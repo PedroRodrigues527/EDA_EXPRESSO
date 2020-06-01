@@ -12,13 +12,14 @@ using namespace std;
 
 locale pt = pt.global(locale("pt-PT.UTF8"));
 
-
 int main() {
 
 	//locale pt = pt.global(locale("pt-PT.UTF8"));
+	//setlocale(LC_ALL, "Portuguese");
 	//locale::global(locale(""));
 	//setlocale(LC_ALL, "");
-	//SetConsoleOutputCP(1254);
+
+	//SetConsoleOutputCP(65001);
 	//SetConsoleCP(1254);
 
 	srand((unsigned)time(NULL));
@@ -75,9 +76,9 @@ int main() {
 	do { // (mai e paulo drumond 18/05)
 
 		cout << endl << "---------------" << endl;
-		cout << " Pressione 'o' para poder ver as opções disponiveis." << endl;
-		cout << " Pressione 's' para seguir para a próxima iteração." << endl;
-		cout << " Prima qualquer outra tecla para fechar o programa e terminar a execução." << endl;
+		cout << " Pressione 'o' para poder ver as opcoes disponiveis." << endl;
+		cout << " Pressione 's' para seguir para a proxima iteracao." << endl;
+		cout << " Prima qualquer outra tecla para fechar o programa e terminar a execucao." << endl;
 		cin >> escolha_do_utilizador;
 
 		switch (escolha_do_utilizador)

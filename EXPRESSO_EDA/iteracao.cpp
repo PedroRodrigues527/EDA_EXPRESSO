@@ -4,8 +4,6 @@
 #include <string>
 using namespace std;
 
-void RemoverPessoaAutocarro(percurso::paragem* inicio);
-
 
 Item* menuOpcoes(percurso pe, Item* Fila) //paulo drumond 18/05
 {
@@ -25,23 +23,23 @@ Item* menuOpcoes(percurso pe, Item* Fila) //paulo drumond 18/05
     {
 
     case 1:
-        cout << "   Escolheu a opção: 1. Remover passageiros nos autocarros." << endl;
+        cout << "   Escolheu a opcao: 1. Remover passageiros nos autocarros." << endl;
         RemoverPessoaAutocarro(pe.inicio);
         break;
     case 2:
-        cout << "   Escolheu a opção: 2. Remover passageiros em fila de espera" << endl;
+        cout << "   Escolheu a opcao: 2. Remover passageiros em fila de espera" << endl;
         Fila = RemoverPessoaFiladeEspera(Fila);
         break;
     case 3:
-        cout << "   Escolheu a opção: 3. Apresentar bilhetes por paragem" << endl;
+        cout << "   Escolheu a opcao: 3. Apresentar bilhetes por paragem" << endl;
         apresentarBilhetes(pe);
         break;
     case 4:
-        cout << "   Escolheu a opção: 4. Alterar motorista" << endl;
+        cout << "   Escolheu a opcao: 4. Alterar motorista" << endl;
         alteraMotorista(pe);
         break;
     case 5:
-        cout << "   Escolheu a opção: 5. Remover bilhete da paragem" << endl;
+        cout << "   Escolheu a opcao: 5. Remover bilhete da paragem" << endl;
         RemoverBilheteParagem(pe);
         break;
     default:
@@ -140,7 +138,10 @@ void saida_passageiros(percurso& pe) //todos
         while (aux != NULL)
         {
             if (verifica_saida_passageiro()) { // por cada passageiro, verifica se irá sair. entra neste if só se for para sair
-                cout << aux->pessoa.numero_bilhete << " " << aux->pessoa.p_nome << " " << aux->pessoa.u_nome << endl; //teste
+
+                cout << "* O passageiro " << aux->pessoa.p_nome << " " << aux->pessoa.u_nome << " (" << aux->pessoa.numero_bilhete << ") saiu na paragem #" 
+                    << paragem->index << "." << endl;
+
                 inserirBilhetePassageiro(aux->pessoa.numero_bilhete, paragem); // implementar aqui código para retirar o passageiro atual
                 if (aux == paragem->autocarro.primeiro) { //inicio
                     paragem->autocarro.primeiro = removerInicio(paragem->autocarro.primeiro);

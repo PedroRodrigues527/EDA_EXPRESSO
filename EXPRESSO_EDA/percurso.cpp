@@ -441,3 +441,34 @@ void RemoverPessoaAutocarro(percurso::paragem* inicio) { //cupido e mai
 bool autocarroExiste(autocarro ac) { // mai
     return (ac.matricula != 0);
 }
+
+void RemoverBilheteParagem(percurso& pe) { // todos
+    int paragem;
+    int numbilhete;
+    cout << "Qual o numero da paragem? " << endl;
+    cin >> paragem;
+    
+    percurso::paragem* temp = pe.inicio;
+
+    bool existearvore = false;
+
+    while (temp != NULL) {
+        if (autocarroExiste(temp->autocarro)) {
+            if (temp->index == paragem && temp->arvore_bilhetes != NULL) {
+                existearvore = true;
+                break;
+            }
+        }
+        temp = temp->seguinte;
+    }
+
+    if (existearvore) {
+        imprimeArvoreBilhetes(temp->arvore_bilhetes);
+        cout << "Qual o numero de bilhete que quer remover? " << endl;
+        cin >> numbilhete;
+        temp->arvore_bilhetes = removerArvoreBilhetes(temp->arvore_bilhetes, numbilhete);
+    }
+    else {
+        cout << "Não existe arvore de bilhetes na paragem #" << paragem << " ." << endl;
+    }
+}

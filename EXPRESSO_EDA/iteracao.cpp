@@ -42,7 +42,7 @@ Item* menuOpcoes(percurso pe, Item* Fila) //paulo drumond 18/05
         break;
     case 5:
         cout << "   Escolheu a opção: 5. Remover bilhete da paragem" << endl;
-
+        RemoverBilheteParagem(pe);
         break;
     default:
         break;
@@ -142,21 +142,23 @@ void saida_passageiros(percurso& pe) //todos
             if (verifica_saida_passageiro()) { // por cada passageiro, verifica se irá sair. entra neste if só se for para sair
                 cout << aux->pessoa.numero_bilhete << " " << aux->pessoa.p_nome << " " << aux->pessoa.u_nome << endl; //teste
                 inserirBilhetePassageiro(aux->pessoa.numero_bilhete, paragem); // implementar aqui código para retirar o passageiro atual
-                if (aux->seguinte == NULL) { //fim
+                if (aux == paragem->autocarro.primeiro) { //inicio
+                    paragem->autocarro.primeiro = removerInicio(paragem->autocarro.primeiro);
+                    aux = paragem->autocarro.primeiro;
+                }
+                else if (aux->seguinte == NULL) { //fim
                     paragem->autocarro.primeiro = removerFim(paragem->autocarro.primeiro);
                     paragem->autocarro.capacidade -= 1;
                     break;
-                }
-                else if (aux == paragem->autocarro.primeiro) { //inicio
-                    paragem->autocarro.primeiro = removerInicio(paragem->autocarro.primeiro);
-                    aux = paragem->autocarro.primeiro;
                 }
                 else { //meio
                     paragem->autocarro.primeiro = removerMeio(paragem->autocarro.primeiro, aux->pessoa.numero_bilhete);
                 }
                 paragem->autocarro.capacidade -= 1;
             }
-            aux = aux->seguinte; // passa para o próximo passageiro;
+            if (paragem->autocarro.capacidade > 0) {
+                aux = aux->seguinte; // passa para o próximo passageiro;
+            }
         }
         paragem = paragem->seguinte; // passa para a próxima paragem, que terá o próximo autocarro;
     }

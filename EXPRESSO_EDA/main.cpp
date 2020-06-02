@@ -75,10 +75,7 @@ int main() {
 	char escolha_do_utilizador;
 	do { // (mai e paulo drumond 18/05)
 
-		cout << endl << "---------------" << endl;
-		cout << " Pressione 'o' para poder ver as opcoes disponiveis." << endl;
-		cout << " Pressione 's' para seguir para a proxima iteracao." << endl;
-		cout << " Prima qualquer outra tecla para fechar o programa e terminar a execucao." << endl;
+		TextoMenu();
 		cin >> escolha_do_utilizador;
 
 		switch (escolha_do_utilizador)

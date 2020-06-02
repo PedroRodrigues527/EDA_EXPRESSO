@@ -105,35 +105,3 @@ Item* removerMeio(Item* Fila, int bilhete) { //cupido
 		temp = temp->seguinte;
 	} while (temp->seguinte != NULL);
 }
-
-Item* RemoverPessoaFiladeEspera(Item* Fila) { //cupido
-	int bilhete;
-	cout << "Insere o numero de bilhete para remover passageiro em fila de espera: ";
-	cin >> bilhete;
-	Item* temp = Fila;
-	if (Fila == NULL) {
-		cout << "Fila vazia!";
-		return NULL;
-	}
-	else if (temp->pessoa.numero_bilhete == bilhete) {
-		return removerInicio(Fila);
-	}
-	else {
-		do {
-			temp = temp->seguinte;
-			if (temp->seguinte == NULL && temp->pessoa.numero_bilhete == bilhete) {
-				//cout << "testes1" << endl;
-				return removerFim(Fila);
-			}
-			else if (temp->pessoa.numero_bilhete == bilhete) {
-				//cout << "testes2" << endl;
-				//cout << temp->seguinte->pessoa.numero_bilhete << " " << temp->seguinte->pessoa.p_nome << " " << temp->seguinte->pessoa.u_nome << endl;
-				return removerMeio(Fila, bilhete);
-			}
-		} while (temp->seguinte != NULL);
-		if (temp->seguinte == NULL && temp->pessoa.numero_bilhete != bilhete) {
-			cout << "Numero de Bilhete nao encontrado!" << endl;
-			return Fila;
-		}
-	}
-}

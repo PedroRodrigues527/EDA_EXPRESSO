@@ -10,9 +10,9 @@ Item* menuOpcoes(percurso pe, Item* Fila) //paulo drumond 18/05
     int num_opcao; // opção de 1 a 5 escolhida pelo utilizador
 
     cout << "--  Menu  --" << endl;
-    cout << "   1. Remover passageiros nos autocarros." << endl;
-    cout << "   2. Remover passageiros em fila de espera" << endl;
-    cout << "   3. Apresentar bilhetes por paragem" << endl;
+    cout << "   1. Remover passageiros nos autocarros" << endl;
+    cout << "   2. Remover pessoas em fila de espera" << endl;
+    cout << "   3. Apresentar bilhetes numa paragem" << endl;
     cout << "   4. Alterar motorista" << endl;
     cout << "   5. Remover bilhete da paragem" << endl;
     cout << "-- Introduza o numero da opcao a que pretende aceder --" << endl;
@@ -23,15 +23,18 @@ Item* menuOpcoes(percurso pe, Item* Fila) //paulo drumond 18/05
     {
 
     case 1:
-        cout << "   Escolheu a opcao: 1. Remover passageiros nos autocarros." << endl;
+        cout << "   Escolheu a opcao: 1. Remover passageiros nos autocarros" << endl;
         RemoverPessoaAutocarro(pe.inicio);
         break;
     case 2:
-        cout << "   Escolheu a opcao: 2. Remover passageiros em fila de espera" << endl;
+        cout << "   Escolheu a opcao: 2. Remover pessoas em fila de espera" << endl;
         Fila = RemoverPessoaFiladeEspera(Fila);
+        cout << "Pressione ENTER para continuar.";
+        cin.get();
+        cin.ignore();
         break;
     case 3:
-        cout << "   Escolheu a opcao: 3. Apresentar bilhetes por paragem" << endl;
+        cout << "   Escolheu a opcao: 3. Apresentar bilhetes numa paragem" << endl;
         apresentarBilhetes(pe);
         break;
     case 4:

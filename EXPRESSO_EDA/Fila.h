@@ -25,6 +25,3 @@ int ContaFila(Item* primeiro);
 Item* removerInicio(Item* Fila);
 Item* removerFim(Item* Fila);
 Item* removerMeio(Item* Fila, int bilhete);
-Item* RemoverPessoaFiladeEspera(Item* Fila);
-
-//void RemoverPessoaAutocarro(percurso::paragem* inicio);

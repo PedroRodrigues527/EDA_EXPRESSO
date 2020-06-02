@@ -48,7 +48,7 @@ void imprimeArvoreBilhetes(bilhete* raiz);
 void imprimeArvoreBilhetesAux(bilhete* raiz, int n, bool esquerda);
 void imprimeArvoreBilhetesInfixa(bilhete* raiz);
 
-void apresentarBilhetes(percurso& pe);
+void apresentarBilhetes(percurso& pe); //3.
 
 
 
@@ -58,11 +58,15 @@ void imprimirPercurso(percurso& pe);
 
 
 bool autocarroExiste(autocarro ac);
-void RemoverPessoaAutocarro(percurso::paragem* inicio);
+void RemoverPessoaAutocarro(percurso::paragem* inicio); //1.
 
-void alteraMotorista(percurso& pe);
+void alteraMotorista(percurso& pe); //4.
 
 
 void inserirBilhetePassageiro(int bilhete, percurso::paragem* pa);
 
-void RemoverBilheteParagem(percurso& pe);
+void RemoverBilheteParagem(percurso& pe); //5.
+
+Item* RemoverPessoaFiladeEspera(Item* Fila); //2.
+
+void TextoMenu();

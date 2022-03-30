@@ -1,2 +1,2 @@
 # EDA_EXPRESSO
-projeto
+Data Structurers and Algorithms Project
